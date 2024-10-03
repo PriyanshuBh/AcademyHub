@@ -4,9 +4,14 @@ import Link from 'next/link';
 // import { useDispatch } from 'react-redux'
 
 interface ButtonProps {
-    children: string; 
-    linkto: string;
-    active:boolean; // Define text as a required string
+    
+    
+   
+    children: React.ReactNode; // Allow any valid React node
+    active: boolean; // Example prop for active state
+    linkto: string; // Example prop for link (if applicable)
+    onClick?: () => void; // Optional click handler
+    className?: string; 
   }
 const Button:React.FC<ButtonProps> = ({children,active,linkto}) => {
     // const dispatch = useDispatch();
