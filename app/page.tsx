@@ -7,6 +7,7 @@ import CodeBlocks from "@/components/core/HomePage/codeBlocks";
 import TimelineSection from "@/components/core/HomePage/TimelineSection";
 import LearningLanguageSection from "@/components/core/HomePage/LearningLanguageSection";
 import InstructorSection from "@/components/core/HomePage/InstructorSection";
+import ExploreMore from "@/components/core/HomePage/ExploreMore";
 
 
 export default function Home() {
@@ -135,11 +136,12 @@ export default function Home() {
             />
         </div>
 
-        {/* <ExploreMore/> */}
+        <ExploreMore/>
+
         <div className='hidden lg:block lg:h-[200px]'></div>
 
         <div className='bg-pure-greys-5 text-richblack-700'>
-            <div className='homepage_bg h-[310px]'>
+            <div className=" homepage_bg h-[310px]">
 
                 <div className='w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto'>
                     <div className='h-[150px]'></div>
@@ -185,14 +187,13 @@ export default function Home() {
                 </div>
                 
                 
-
                 <TimelineSection />
 
                 <LearningLanguageSection />
 
             </div>
       </div>
-
+{/* section 3 */}
       <div className='w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8 first-letter bg-richblack-900 text-white'>
 
           <InstructorSection />

@@ -6,6 +6,7 @@ import Logo3 from "../../../public/TimeLineLogo/Logo3.svg"
 import Logo4 from "../../../public/TimeLineLogo/Logo4.svg"
 import timelineImage from "../../../public/Images/TimelineImage.png"
 
+
 const timeline = [
     {
         Logo: Logo1,
@@ -13,6 +14,7 @@ const timeline = [
         Description:"Fully committed to the success company",
     },
     {
+        
         Logo: Logo2,
         heading: "Leadership",
         Description:"Fully committed to the success company",
@@ -41,7 +43,7 @@ const TimelineSection = () => {
                         <div className='flex flex-row gap-6' key={index}>
 
                             <div className='w-[50px] h-[50px] bg-white flex items-center'>
-                                <img src={element.Logo} />
+                                <Image src={element.Logo} alt=''/>
                             </div>
 
                             <div>
