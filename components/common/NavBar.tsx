@@ -1,23 +1,18 @@
 import React, { useState } from 'react'
 
-// import { Link, matchPath } from 'react-router-dom'
+import {  matchPath ,RouteProps } from 'react-router-dom'
 import { NavbarLinks } from '../../lib/data/navbar-links'
-// import { useLocation } from 'react-router-dom'
-// import { useSelector } from 'react-redux'
 import { TiShoppingCart } from 'react-icons/ti'
-// import ProfileDropDown from '../core/Auth/ProfileDropDown'
-// import { categories } from '../../services/apis'
-// import { apiConnector } from '../../services/apiConnector'
-// import { useDispatch } from 'react-redux'
-import { useEffect } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { useRef } from 'react'
 import { HiSearch } from 'react-icons/hi'
 import Link from 'next/link'
-// import { useNavigate } from 'react-router'
 
-const NavBar = () => {
-  
+
+
+const NavBar =() => {
+    const matchRoutes = (routes: string  ) => {
+        return matchPath({ path: routes }, location.pathname)
+    }
 
     return (
         <div className={` flex sm:relative bg-richblack-900 w-screen relative z-50 h-14 items-center justify-center border-b-[1px] border-b-richblack-700 translate-y-  transition-all duration-500`}>
@@ -149,7 +144,9 @@ const NavBar = () => {
 
                                         </div>) : (
 
-                                            <Link to={element?.path} onClick={() => { dispatch(setProgress(100)) }} >
+                                            <Link href={element?.path || "#"} 
+                                            // onClick={() => { dispatch(setProgress(100)) }}
+                                             >
                                                 <p className={`${matchRoutes(element?.path) ? " text-yellow-25" : " text-richblack-25 hidden md:block"}`} >
                                                     {element?.title}
                                                 </p>
