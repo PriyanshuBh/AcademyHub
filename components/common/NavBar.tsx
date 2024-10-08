@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {  matchPath ,RouteProps } from 'react-router-dom'
 import { NavbarLinks } from '../../lib/data/navbar-links'
@@ -6,13 +6,49 @@ import { TiShoppingCart } from 'react-icons/ti'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { HiSearch } from 'react-icons/hi'
 import Link from 'next/link'
+import useAuthStore from '@/store/useAuthStore'
+import useProfileStore from '@/store/useProfileStore'
+import useCartStore from '@/store/useCartStrore'
 
 
 
 const NavBar =() => {
+
+    const {token}=useAuthStore();
+    const {user} = useProfileStore();
+    const {totalItems} =useCartStore();
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [visible, setVisible] = useState(true)
+    const [searchValue, setSearchValue] = useState("") 
+
+
     const matchRoutes = (routes: string  ) => {
         return matchPath({ path: routes }, location.pathname)
     }
+    const [sublinks, setsublinks] = useState([]);
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY
+
+        if (currentScrollPos > prevScrollPos) {
+            setVisible(false)
+        } else {
+            setVisible(true)
+        }
+
+        setPrevScrollPos(currentScrollPos)
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll)
+    })
+    // const handelSearch = (e) => {
+    //     e.preventDefault();
+    //     if (searchValue?.length > 0) {
+    //         navigate(`/search/${searchValue}`);
+    //         setSearchValue("");
+    //     }
+    // }
 
     return (
         <div className={` flex sm:relative bg-richblack-900 w-screen relative z-50 h-14 items-center justify-center border-b-[1px] border-b-richblack-700 translate-y-  transition-all duration-500`}>
@@ -166,7 +202,7 @@ const NavBar =() => {
                 <div className='flex-row gap-5 hidden md:flex items-center'>
                     {
                         user && user?.accountType !== "Instructor" && (
-                            <Link to='/dashboard/cart' className=' relative px-4 ' onClick={() => { dispatch(setProgress(100)) }} >
+                            <Link href='/dashboard/cart' className=' relative px-4 ' onClick={() => { dispatch(setProgress(100)) }} >
                                 <div className=' z-50'>
                                     <TiShoppingCart className=' fill-richblack-25 w-7 h-7' />
                                 </div>
