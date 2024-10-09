@@ -9,6 +9,7 @@ import Link from 'next/link'
 import useAuthStore from '@/store/useAuthStore'
 import useProfileStore from '@/store/useProfileStore'
 import useCartStore from '@/store/useCartStrore'
+import ProfileDropDown from '../core/Auth/ProfileDropDown'
 
 
 
@@ -17,15 +18,33 @@ const NavBar =() => {
     const {token}=useAuthStore();
     const {user} = useProfileStore();
     const {totalItems} =useCartStore();
+
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true)
     const [searchValue, setSearchValue] = useState("") 
 
 
-    const matchRoutes = (routes: string  ) => {
-        return matchPath({ path: routes }, location.pathname)
-    }
+    // const matchRoutes = (routes: string  ) => {
+    //     return matchPath({ path: routes }, location.pathname)
+    // }
+
+    // const fetchSublinks = async () => {
+    //     try {
+    //         const result = await apiConnector("GET", categories.CATEGORIES_API);
+    //         if (result?.data?.data?.length > 0) {
+    //             setsublinks(result?.data?.data);
+    //         }
+    //         localStorage.setItem("sublinks", JSON.stringify(result.data.data));
+
+    //     } catch (error) {
+    //         // setsublinks(JSON.parse(localStorage.getItem("sublinks")));
+    //         // console.log("could not fetch sublinks",localStorage.getItem("sublinks"));
+    //         console.log(error);
+    //     }
+    // }
+
     const [sublinks, setsublinks] = useState([]);
+
     const handleScroll = () => {
         const currentScrollPos = window.scrollY
 
@@ -42,13 +61,13 @@ const NavBar =() => {
 
         return () => window.removeEventListener('scroll', handleScroll)
     })
-    // const handelSearch = (e) => {
-    //     e.preventDefault();
-    //     if (searchValue?.length > 0) {
-    //         navigate(`/search/${searchValue}`);
-    //         setSearchValue("");
-    //     }
-    // }
+    const handelSearch = () => {
+        // e.preventDefault();
+        // if (searchValue?.length > 0) {
+        //     navigate(`/search/${searchValue}`);
+        //     setSearchValue("");
+        // }
+    }
 
     return (
         <div className={` flex sm:relative bg-richblack-900 w-screen relative z-50 h-14 items-center justify-center border-b-[1px] border-b-richblack-700 translate-y-  transition-all duration-500`}>
@@ -156,10 +175,10 @@ const NavBar =() => {
 
                                             <div className='invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]'>
                                                 <div className='absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5'></div>
-                                                {
+                                                {/* {
                                                     sublinks?.length < 0 ? (<div></div>) : (
                                                         sublinks?.map((element, index) => (
-                                                            <Link to={`/catalog/${element?.name}`} key={index} className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50" onClick={() => { dispatch(setProgress(30)) }}>
+                                                            <Link href={`/catalog/${element?.name}`} key={index} className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50" >
                                                                 <p className=''>
                                                                     {element?.name}
                                                                 </p>
@@ -167,7 +186,7 @@ const NavBar =() => {
                                                         ))
                                                     )
 
-                                                }
+                                                } */}
 
 
 
@@ -183,7 +202,9 @@ const NavBar =() => {
                                             <Link href={element?.path || "#"} 
                                             // onClick={() => { dispatch(setProgress(100)) }}
                                              >
-                                                <p className={`${matchRoutes(element?.path) ? " text-yellow-25" : " text-richblack-25 hidden md:block"}`} >
+                                                <p className={`
+                                                   
+                                                    " text-richblack-25 hidden md:block"}`} >
                                                     {element?.title}
                                                 </p>
                                             </Link>
@@ -202,7 +223,7 @@ const NavBar =() => {
                 <div className='flex-row gap-5 hidden md:flex items-center'>
                     {
                         user && user?.accountType !== "Instructor" && (
-                            <Link href='/dashboard/cart' className=' relative px-4 ' onClick={() => { dispatch(setProgress(100)) }} >
+                            <Link href='/dashboard/cart' className=' relative px-4 ' >
                                 <div className=' z-50'>
                                     <TiShoppingCart className=' fill-richblack-25 w-7 h-7' />
                                 </div>
@@ -219,7 +240,7 @@ const NavBar =() => {
                     }
                     {
                         token == null && (
-                            <Link to='/login' className='text-richblack-25' onClick={() => { dispatch(setProgress(100)) }} >
+                            <Link href='/login' className='text-richblack-25' onClick={() => {  }} >
                                 <button className='rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[7px] text-richblack-100'>
                                     Login
                                 </button>
@@ -228,7 +249,7 @@ const NavBar =() => {
                     }
                     {
                         token == null && (
-                            <Link to='/signup' className='text-richblack-25' onClick={() => { dispatch(setProgress(100)) }} >
+                            <Link href='/signup' className='text-richblack-25' onClick={() => {  }} >
                                 <button className='rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[7px] text-richblack-100' >
                                     Signup
                                 </button>
