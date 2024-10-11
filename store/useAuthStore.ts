@@ -19,7 +19,7 @@ interface AuthState {
 }
 
 const useAuthStore = create<AuthState>((set) => ({
-    token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token") as string) : null,
+     token: localStorage.getItem("token") ? JSON.parse(localStorage.getItem("token") as string) : null,
     signupData: undefined,
     loading: false,
     setSignupData: (data) => set({ signupData: data }),
