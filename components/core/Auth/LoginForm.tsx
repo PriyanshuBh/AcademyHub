@@ -11,34 +11,32 @@ import Link from "next/link"
 function LoginForm() {
   // const navigate = useNavigate()
   // const dispatch = useDispatch()
-  // const [formData, setFormData] = useState({
-  //   email: "",
-  //   password: "",
-  // })
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  })
 
-  // const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
-  // const { email, password } = formData
-const email=""
-const password="";
-const showPassword="";
+  const { email, password } = formData
 
-  const handleOnChange = () => {
-    // setFormData((prevData) => ({
-    //   ...prevData,
-    //   [e.target.name]: e.target.value,
-    // }))
+
+  const handleOnChange = (e:any) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }))
   }
 
-  const handleOnSubmit = () => {
+  const handleOnSubmit = (e:any) => {
 
-    // e.preventDefault()
+    e.preventDefault()
     // dispatch(login(email, password, navigate))
   }
 
   return (
     <form
-      // onSubmit={handleOnSubmit}
+      onSubmit={handleOnSubmit}
       className="mt-6 flex w-full flex-col gap-y-4"
     >
       <label className="w-full">
@@ -75,7 +73,7 @@ const showPassword="";
           className="w-full rounded-[0.5rem] bg-richblack-800 p-[12px] pr-12 text-richblack-5"
         />
         <span
-          // onClick={() => setShowPassword((prev) => !prev)}
+          onClick={() => setShowPassword((prev) => !prev)}
           className="absolute right-3 top-[38px] z-[10] cursor-pointer"
         >
           {showPassword ? (

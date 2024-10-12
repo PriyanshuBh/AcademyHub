@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig,AxiosHeaders } from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
 export const axiosInstance = axios.create({});
 

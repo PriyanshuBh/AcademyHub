@@ -1,4 +1,4 @@
-const BASE_URL: string = process.env.REACT_APP_BASE_URL as string;
+const BASE_URL: string = process.env.NEXT_PUBLIC_BASE_URL as string;
 
 // AUTH ENDPOINTS
 export const endpoints = {
@@ -9,7 +9,7 @@ export const endpoints = {
   RESETPASSWORD_API: `${BASE_URL}/auth/reset-password`,
 };
 
-// PROFILE ENDPOINTS
+// PROFILE ENDPOINTS 
 export const profileEndpoints = {
   GET_USER_DETAILS_API: `${BASE_URL}/profile/getUserDetails`,
   GET_USER_ENROLLED_COURSES_API: `${BASE_URL}/profile/getEnrolledCourses`,

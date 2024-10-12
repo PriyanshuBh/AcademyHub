@@ -8,7 +8,7 @@ interface ProfileState {
 }
 
 const useProfileStore = create<ProfileState>((set) => ({
-    user: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") as string) : null,
+    user: typeof window !== "undefined" &&  localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user") as string) : null,
     loading: false,
     setUser: (user) => {
         set({ user });

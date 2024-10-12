@@ -31,6 +31,7 @@ const NavBar =() => {
     //     return matchPath({ path: routes }, location.pathname)
     // }
     interface Sublink {
+        name:string;
         link: string;
         title: string;
         // Add other fields if needed
@@ -44,9 +45,10 @@ const NavBar =() => {
             if (result?.data?.data?.length > 0) {
                 setsublinks(result?.data?.data);
             }
+            console.log(result);
             localStorage.setItem("sublinks", JSON.stringify(result.data.data));
 
-        } catch (error) {
+        } catch (error) { 
             // setsublinks(JSON.parse(localStorage.getItem("sublinks")));
             // console.log("could not fetch sublinks",localStorage.getItem("sublinks"));
             console.log(error);
@@ -190,10 +192,10 @@ const NavBar =() => {
                                                 <div className='absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5'></div>
                                                 {
                                                     sublinks?.length < 0 ? (<div></div>) : (
-                                                        sublinks?.map((element, index) => (
-                                                            <Link href={`/catalog/${element?.link}`} key={index} className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50" >
+                                                        sublinks?.map((items, index) => (
+                                                            <Link href={`/catalog/${items?.name}`} key={index} className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50" >
                                                                 <p className=''>
-                                                                    {element?.title}
+                                                                    {items?.name}
                                                                 </p>
                                                             </Link>
                                                         ))

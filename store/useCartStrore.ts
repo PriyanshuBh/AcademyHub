@@ -17,9 +17,9 @@ interface CartState {
 }
 
 const useCartStore = create<CartState>((set) => ({
-    cart: localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart") as string) : [],
-    total: localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total") as string) : 0,
-    totalItems: localStorage.getItem("totalItems") ? JSON.parse(localStorage.getItem("totalItems") as string) : 0,
+    cart: typeof window !== "undefined" && localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart") as string) : [],
+    total: typeof window !== "undefined" && localStorage.getItem("total") ? JSON.parse(localStorage.getItem("total") as string) : 0,
+    totalItems:  typeof window !== "undefined" && localStorage.getItem("totalItems") ? JSON.parse(localStorage.getItem("totalItems") as string) : 0,
     
     addToCart: (course) => set((state) => {
         const index = state.cart.findIndex(item => item._id === course._id);
@@ -47,7 +47,7 @@ const useCartStore = create<CartState>((set) => ({
             cart: updatedCart,
             total: updatedTotal,
             totalItems: updatedTotalItems,
-        };
+        }; 
     }),
 
     removeFromCart: (courseId) => set((state) => {

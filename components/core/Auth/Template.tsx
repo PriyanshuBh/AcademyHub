@@ -13,7 +13,7 @@ interface templateProps{
 }
 
 function Template({ title, description1, description2, image, formType }:templateProps) {
-//   const { loading } = useSelector((state) => state.auth)
+  const { loading } = useSelector((state) => state.auth)
 const loading=false;
 
   return (
