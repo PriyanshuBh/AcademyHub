@@ -1,3 +1,4 @@
+
 import HighlightText from "@/components/core/HomePage/HighlightText";
 import Image from "next/image";
 import Link from 'next/link';

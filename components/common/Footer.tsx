@@ -1,6 +1,6 @@
 import React from "react";
 import { FooterLink2 } from "../../lib/data/footer-links";
-import Link from 'next/link';
+import Link from "next/link";
 import Image from "next/image";
 // Images
 import Logo from "../../public/Logo/Logo-Full-Light.png";
@@ -172,7 +172,9 @@ const Footer = () => {
             })}
           </div>
 
-          <div className="text-center">Made by Himanshu Sangwan 🗿 © 2023 Studynotion</div>
+          <div className="text-center">
+            Made by Himanshu Sangwan 🗿 © 2023 Studynotion
+          </div>
         </div>
       </div>
     </div>

@@ -1,38 +1,36 @@
-import { console } from "node:inspector/promises"
-import { useState } from "react"
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import Link from "next/link"
-// import { useDispatch } from "react-redux"
-// import { Link, useNavigate } from "react-router-dom"
+import { console } from "node:inspector/promises";
+import { useState } from "react";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { login } from "../../../services/operations/authApi";
+import useLoadingBarStore from "@/store/useLoadingBarStore";
 
-// import { login } from "../../../services/operations/authAPI"
-// import { setProgress } from "../../../slices/loadingBarSlice"
+const { setProgress } = useLoadingBarStore.getState();
 
 function LoginForm() {
-  // const navigate = useNavigate()
-  // const dispatch = useDispatch()
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-  })
+  });
 
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
 
-  const { email, password } = formData
+  const { email, password } = formData;
 
-
-  const handleOnChange = (e:any) => {
+  const handleOnChange = (e: any) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
-  const handleOnSubmit = (e:any) => {
-
-    e.preventDefault()
-    // dispatch(login(email, password, navigate))
-  }
+  const handleOnSubmit = (e: any) => {
+    e.preventDefault();
+    login(email, password, router.push);
+  };
 
   return (
     <form
@@ -88,15 +86,17 @@ function LoginForm() {
           </p>
         </Link>
       </label>
-      <button 
-      // onClick={()=>{dispatch(setProgress(60))}}
+      <button
+        onClick={() => {
+          setProgress(60);
+        }}
         type="submit"
         className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
       >
         Sign In
       </button>
     </form>
-  )
+  );
 }
 
-export default LoginForm
+export default LoginForm;

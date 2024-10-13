@@ -1,20 +1,19 @@
 import { FcGoogle } from "react-icons/fc"
-// import { useSelector } from "react-redux"
 
-import frameImg from "../../../public/Images/frame.png"
 import LoginForm from "./LoginForm"
 import SignupForm from "./SignupForm"
-interface templateProps{
-    title:string;
-    description1:string;
-    description2:string;
-    image:string;
-    formType:string;
+import useAuthStore from "@/store/useAuthStore"
+
+interface TemplateProps  {
+  title : string; 
+  description1: string;
+  description2: string;
+  image : string;
+  formType: string; 
 }
 
-function Template({ title, description1, description2, image, formType }:templateProps) {
-  const { loading } = useSelector((state) => state.auth)
-const loading=false;
+function Template({ title, description1, description2, image, formType } : TemplateProps) {
+  const { loading } = useAuthStore();
 
   return (
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
@@ -36,7 +35,7 @@ const loading=false;
           </div>
           <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0">
             <img
-              src={frameImg}
+              src={"../../../public/Images/frame.png"}
               alt="Pattern"
               width={558}
               height={504}
