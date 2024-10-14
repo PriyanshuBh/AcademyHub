@@ -1,8 +1,9 @@
+ "use client"
 import { console } from "node:inspector/promises";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/router';
 import { login } from "../../../services/operations/authApi";
 import useLoadingBarStore from "@/store/useLoadingBarStore";
 

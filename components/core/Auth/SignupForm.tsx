@@ -1,72 +1,77 @@
 import { useState } from "react"
-// import { toast } from "react-hot-toast"
+import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-// import { useDispatch } from "react-redux"
-// import { useNavigate } from "react-router-dom"
 
-// import { sendOtp } from "../../../services/operations/authAPI"
-// import { setSignupData } from "../../../slices/authSlice"
-// import { ACCOUNT_TYPE } from "../../../utils/constants"
+import { sendOtp } from "../../../services/operations/authApi"
+import { ACCOUNT_TYPE } from "../../../utils/constants"
 import Tab from "../../common/Tab"
-// import {setProgress} from "../../../slices/loadingBarSlice"
 
+import useAuthStore from "@/store/useAuthStore"
+import useLoadingBarStore from "@/store/useLoadingBarStore"
+
+import { useRouter } from 'next/router';
+
+
+const {setSignupData} = useAuthStore.getState();
+const {setProgress} =useLoadingBarStore.getState();
 function SignupForm() {
-  // const navigate = useNavigate()
-  // const dispatch = useDispatch()
+  
+  const navigate = useRouter();
+ 
 
   // student or instructor
-  // const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT)
+  const [accountType, setAccountType] = useState(ACCOUNT_TYPE.STUDENT)
 
-  // const [formData, setFormData] = useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   email: "",
-  //   password: "",
-  //   confirmPassword: "",
-  // })
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  })
 
-  // const [showPassword, setShowPassword] = useState(false)
-  // const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-  // const { firstName, lastName, email, password, confirmPassword } = formData
+  const { firstName, lastName, email, password, confirmPassword } = formData
 
-  // // Handle input fields, when some value changes
-  // const handleOnChange = (e) => {
-  //   setFormData((prevData) => ({
-  //     ...prevData,
-  //     [e.target.name]: e.target.value,
-  //   }))
-  // }
+  // Handle input fields, when some value changes
+  const handleOnChange = (e:any) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }))
+  }
 
   // Handle Form Submission
-  // const handleOnSubmit = (e) => {
-  //   e.preventDefault()
+  const handleOnSubmit = (e:any) => {
+    e.preventDefault()
 
-  //   if (password !== confirmPassword) {
-  //     toast.error("Passwords Do Not Match")
-  //     return
-  //   }
-  //   const signupData = {
-  //     ...formData,
-  //     accountType,
-  //   }
+    if (password !== confirmPassword) {
+      toast.error("Passwords Do Not Match")
+      return
+    }
+    const signupData = {
+      ...formData,
+      accountType,
+    }
 
-  //   // Setting signup data to state
-  //   // To be used after otp verification
-  //   dispatch(setSignupData(signupData))
-  //   // Send OTP to user for verification
-  //   dispatch(sendOtp(formData.email, navigate))
+    // Setting signup data to state
+    // To be used after otp verification
+    setSignupData(signupData)
+    // Send OTP to user for verification
+    sendOtp(formData.email, navigate.push)
 
-  //   // Reset
-  //   setFormData({
-  //     firstName: "",
-  //     lastName: "",
-  //     email: "",
-  //     password: "",
-  //     confirmPassword: "",
-  //   })
-  //   setAccountType(ACCOUNT_TYPE.STUDENT)
-  // }
+    // Reset
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    })
+    setAccountType(ACCOUNT_TYPE.STUDENT)
+  }
 
   // data to pass to Tab component
   const tabData = [
@@ -198,7 +203,7 @@ function SignupForm() {
           </label>
         </div>
         <button
-          type="submit" onClick={()=>{dispatch(setProgress(60))}}
+          type="submit" onClick={()=>{setProgress(60)}}
           className="mt-6 rounded-[8px] bg-yellow-50 py-[8px] px-[12px] font-medium text-richblack-900"
         >
           Create Account

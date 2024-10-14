@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
-import { NavigateFunction } from "react-router-dom"; // Import for TypeScript typing
+ 
 import useLoadingBarStore from "@/store/useLoadingBarStore";
 import useAuthStore from "@/store/useAuthStore";
 import useProfileStore from "@/store/useProfileStore";
@@ -28,7 +28,7 @@ const { setLoading, setToken } = useAuthStore.getState();
 const { setUser } = useProfileStore.getState();
 const { resetCart } = useCartStore.getState();
 
-export function sendOtp(email: string, navigate: NavigateFunction) {
+export function sendOtp(email: string, navigate:(path: string) => void) {
   return async () => {
     // const toastId = toast.loading("Loading...")
     setLoading(true);
@@ -69,7 +69,7 @@ export function signUp(
   password: string,
   confirmPassword: string,
   otp: string,
-  navigate: NavigateFunction
+  navigate:(path: string) => void
 ) {
   return async () => {
     const toastId = toast.loading("Loading...");
@@ -205,7 +205,7 @@ export function resetPassword(
   };
 }
 
-export function logout(navigate: NavigateFunction) {
+export function logout(navigate:(path: string) => void) {
   return () => {
     setToken(null);
     setUser(null);
