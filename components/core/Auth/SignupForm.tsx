@@ -1,22 +1,21 @@
+ "use client"
 import { useState } from "react"
 import { toast } from "react-hot-toast"
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 
-import { sendOtp } from "../../../services/operations/authApi"
-import { ACCOUNT_TYPE } from "../../../utils/constants"
+import { sendOtp } from "@/services/operations/authApi"
+import { ACCOUNT_TYPE } from "@/utils/constants"
 import Tab from "../../common/Tab"
 
 import useAuthStore from "@/store/useAuthStore"
 import useLoadingBarStore from "@/store/useLoadingBarStore"
-
-import { useRouter } from 'next/router';
-
+import { useRouter } from 'next/navigation';
 
 const {setSignupData} = useAuthStore.getState();
 const {setProgress} =useLoadingBarStore.getState();
-function SignupForm() {
-  
-  const navigate = useRouter();
+export default function SignupForm() {
+   
+  const router  = useRouter();
  
 
   // student or instructor
@@ -60,7 +59,7 @@ function SignupForm() {
     // To be used after otp verification
     setSignupData(signupData)
     // Send OTP to user for verification
-    sendOtp(formData.email, navigate.push)
+    sendOtp(formData.email, router.push)
 
     // Reset
     setFormData({
@@ -213,4 +212,3 @@ function SignupForm() {
   )
 }
 
-export default SignupForm

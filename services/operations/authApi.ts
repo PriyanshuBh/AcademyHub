@@ -28,7 +28,7 @@ const { setLoading, setToken } = useAuthStore.getState();
 const { setUser } = useProfileStore.getState();
 const { resetCart } = useCartStore.getState();
 
-export function sendOtp(email: string, navigate:(path: string) => void) {
+export function sendOtp(email: string, router:(path: string) => void) {
   return async () => {
     // const toastId = toast.loading("Loading...")
     setLoading(true);
@@ -47,7 +47,7 @@ export function sendOtp(email: string, navigate:(path: string) => void) {
       }
 
       toast.success("OTP Sent Successfully");
-      navigate("/verify-email");
+      router("/verify-email");
     } catch (error: ApiError | any) {
       console.log("SENDOTP API ERROR............", error);
       const errorMessage =
@@ -69,7 +69,7 @@ export function signUp(
   password: string,
   confirmPassword: string,
   otp: string,
-  navigate:(path: string) => void
+  router:(path: string) => void
 ) {
   return async () => {
     const toastId = toast.loading("Loading...");
@@ -92,12 +92,12 @@ export function signUp(
       }
       setProgress(100);
       toast.success("Signup Successful");
-      navigate("/login");
+      router("/login");
     } catch (error) {
       setProgress(100);
       console.log("SIGNUP API ERROR............", error);
       toast.error("Signup Failed");
-      navigate("/signup");
+      router("/signup");
     }
     setLoading(false);
     toast.dismiss(toastId);
@@ -107,7 +107,7 @@ export function signUp(
 export function login(
   email: string,
   password: string,
-  navigate: (path: string) => void
+  router: (path: string) => void
 ) {
   return async () => {
     const toastId = toast.loading("Loading...");
@@ -132,7 +132,7 @@ export function login(
       setUser({ ...response.data.user, image: userImage });
       localStorage.setItem("user", JSON.stringify(response.data.user));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      navigate("/dashboard/my-profile");
+      router("/dashboard/my-profile");
     } catch (error: ApiError | any) {
       setProgress(100);
       console.log("LOGIN API ERROR............", error);
@@ -205,7 +205,7 @@ export function resetPassword(
   };
 }
 
-export function logout(navigate:(path: string) => void) {
+export function logout(router:(path: string) => void) {
   return () => {
     setToken(null);
     setUser(null);
@@ -213,7 +213,7 @@ export function logout(navigate:(path: string) => void) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     toast.success("Logged Out");
-    navigate("/");
+    router("/");
   };
 }
 

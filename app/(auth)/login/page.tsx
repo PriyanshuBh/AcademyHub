@@ -6,9 +6,9 @@ import { login } from "../../../services/operations/authApi";
 import { useState } from "react";
 import { TbCornerDownRightDouble } from "react-icons/tb";
 import { BsLightningChargeFill } from "react-icons/bs";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
-function Login() { 
+function Login() {
   const [showDemo, setShowDemo] = useState(true);
 
   const navigate = useRouter();
