@@ -42,7 +42,8 @@ export function sendOtp(email: string, router:(path: string) => void) {
 
       console.log(response.data.success);
 
-      if (!response.data.success) {
+      if (!response.data.success) { 
+          
         throw new Error(response.data.message);
       }
 
