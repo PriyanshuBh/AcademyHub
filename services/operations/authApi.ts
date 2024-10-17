@@ -111,6 +111,7 @@ export function login(
   router: (path: string) => void
 ) {
   return async () => {
+    console.log(" IN login api")
     const toastId = toast.loading("Loading...");
     setLoading(true);
     try {
