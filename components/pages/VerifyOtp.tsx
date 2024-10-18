@@ -23,7 +23,8 @@ const VerifyOtp = () => {
             email: string;
             accountType: string;
             confirmPassword: string;
-            password: string;
+            password: string; 
+            
             lastName: string;
             firstName: string;
           };
