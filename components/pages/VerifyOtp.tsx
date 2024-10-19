@@ -24,7 +24,6 @@ const VerifyOtp = () => {
             accountType: string;
             confirmPassword: string;
             password: string; 
-            
             lastName: string;
             firstName: string;
           };
