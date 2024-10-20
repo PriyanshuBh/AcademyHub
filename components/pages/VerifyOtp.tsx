@@ -9,8 +9,11 @@ const VerifyOtp = () => {
 
     const [otp, setOtp] = React.useState("");
    
+ 
+ 
     const navigate = useNavigate();
-    const {loading,signupData}= useAuthStore();
+
+    const {loading,signupData}  = useAuthStore();
 
 
     useEffect(() => {
@@ -18,29 +21,24 @@ const VerifyOtp = () => {
         if(!signupData){
             navigate('/signup');
         }},[])
-
-        type SignupData = {
-            email: string;
-            accountType: string;
-            confirmPassword: string;
-            password: string; 
-            lastName: string;
-            firstName: string;
-          };
+       
 
     const handleOnSubmit = (e:any) => {
 
         e.preventDefault();
-        const {email ,accountType,confirmPassword,password,lastName,firstName}=signupData;
-
-        signUp(accountType,
+        if (signupData) {
+          const { email, accountType, conformPassword, password, lastName, firstName } = signupData;
+          signUp(accountType,
             firstName,
             lastName,
             email,
             password,
-            confirmPassword,
+            conformPassword,
             otp,
             navigate);
+      }
+
+        
     }
 
   return (
@@ -57,13 +55,14 @@ const VerifyOtp = () => {
                     numInputs={6}
                     renderSeparator={<span>-</span>}
                     inputStyle="w-[20px] rounded-[8px] border-[1px] border-richblack-500 text-[3rem] text-center"
-                    focusStyle="border-[5px] border-red-500"
-                    isInputNum={true}
+                    // focusStyle="border-[5px] border-red-500"
+                    // isInputNum={true}
                     shouldAutoFocus={true}
                     containerStyle="flex justify-between gap-4"
                     renderInput={(props) => <input {...props} />}
 
                     />
+                    
                 <button type="submit" className="w-full bg-yellow-50 py-[12px] px-[12px] rounded-[8px] mt-6 font-medium text-richblack-900">Verify Email</button>
                 </form>
                 
