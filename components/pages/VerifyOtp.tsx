@@ -57,6 +57,7 @@ const VerifyOtp = () => {
                     inputStyle="w-[20px] rounded-[8px] border-[1px] border-richblack-500 text-[3rem] text-center"
                     // focusStyle="border-[5px] border-red-500"
                     // isInputNum={true}
+                    
                     shouldAutoFocus={true}
                     containerStyle="flex justify-between gap-4"
                     renderInput={(props) => <input {...props} />}
