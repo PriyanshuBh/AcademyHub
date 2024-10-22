@@ -12,7 +12,8 @@ const ResetPassword = () => {
         e.preventDefault();
         forgotPassword(email,setemailSent);
         
-    }
+    } 
+    
 const {loading}= useAuthStore();
     const [emailSent, setemailSent] = useState(false)
     const [email, setemail] = useState("");
