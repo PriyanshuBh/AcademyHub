@@ -10,12 +10,13 @@ interface TemplateProps  {
   description2: string;
   image : string;
   formType: string; 
-}
+} 
+
 
 function Template({ title, description1, description2, image, formType } : TemplateProps) {
   const { loading } = useAuthStore();
 
-  return (
+  return ( 
     
     
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
