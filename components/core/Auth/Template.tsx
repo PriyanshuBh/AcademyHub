@@ -12,6 +12,7 @@ interface TemplateProps  {
   formType: string; 
 } 
 
+  
 
 function Template({ title, description1, description2, image, formType } : TemplateProps) {
   const { loading } = useAuthStore();
