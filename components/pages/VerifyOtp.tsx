@@ -60,7 +60,7 @@ const VerifyOtp = () => {
                     
                     shouldAutoFocus={true}
                     containerStyle="flex justify-between gap-4"
-                    renderInput={(props) => <input {...props} />}
+                    renderInput={(props) => <input {...props} className='bg-richblack-800' />}
 
                     />
                     
