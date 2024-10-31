@@ -11,6 +11,8 @@ import { setCourse, setStep } from '../../../slices/courseSlice'
 
 
 
+
+
 const Sidebar = () => {
 
     const {user, loading: profileLoading} = useSelector((state) => state.profile);
