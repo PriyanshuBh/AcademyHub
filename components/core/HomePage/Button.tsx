@@ -9,7 +9,7 @@ interface ButtonProps {
    
     children: React.ReactNode; // Allow any valid React node
     active: boolean; // Example prop for active state
-    linkto: string; // Example prop for link (if applicable)
+    linkto: string ; // Example prop for link (if applicable)
     onClick?: () => void; // Optional click handler
     className?: string; 
   }
