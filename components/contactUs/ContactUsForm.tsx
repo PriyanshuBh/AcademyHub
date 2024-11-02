@@ -50,18 +50,18 @@ const ContactUsForm = () => {
     <div>
         <form onSubmit={handleSubmit(onSubmit)} className={"flex flex-col gap-7"}>
 
-        <div className="flex flex-col gap-5 lg:flex-row"><div className="flex flex-col gap-2 lg:w-[48%]"><label htmlFor="firstname" className="lable-style">First Name</label><input type="text" name="firstname" id="firstname" placeholder="Enter first name"
+        <div className="flex flex-col gap-5 lg:flex-row"><div className="flex flex-col gap-2 lg:w-[48%]"><label htmlFor="firstname" className="lable-style">First Name</label><input type="text"  id="firstname" placeholder="Enter first name"
         {...register("firstName",{required:true})} className="form-style"/>
         {
             errors.firstName && <span className=" text-yellow-25">Enter Firstname *</span>
         }</div>
 
-        <div className="flex flex-col gap-2 lg:w-[48%]"><label htmlFor="lastname" className="lable-style">Last Name</label><input type="text" name="lastname" id="lastname" placeholder="Enter last name" className="form-style"  {...register("lastName")}/>
+        <div className="flex flex-col gap-2 lg:w-[48%]"><label htmlFor="lastname" className="lable-style">Last Name</label><input type="text"  id="lastname" placeholder="Enter last name" className="form-style"  {...register("lastName")}/>
         {
             errors.lastName && <span className=" text-yellow-25">Enter Lastname</span>
         }</div></div>
         
-        <div className="flex flex-col gap-2"><label htmlFor="email" className="lable-style">Email Address</label><input type="email" name="email" id="email" placeholder="Enter email address" className="form-style"  {...register("email",{required:true})}/>
+        <div className="flex flex-col gap-2"><label htmlFor="email" className="lable-style">Email Address</label><input type="email"  id="email" placeholder="Enter email address" className="form-style"  {...register("email",{required:true})}/>
         {
             errors.email && <span className=" text-yellow-25">Enter Email *</span>
         }</div>
@@ -70,7 +70,7 @@ const ContactUsForm = () => {
             <label htmlFor="phoneNo" className="lable-style">Phone Number</label>
             <div className='flex gap-5'>
                 <div className='flex w-[81px] flex-col gap-2'>
-                <select type="text" name="countrycode" id="countryCode" className="form-style" {...register("countryCode",{required:true})}>
+                <select type="text" id="countryCode" className="form-style" {...register("countryCode",{required:true})}>
                     {
                         countryCode.map((item,index)=>{
                             return(
@@ -83,7 +83,7 @@ const ContactUsForm = () => {
                 </select>
                 </div>
                 <div className='flex w-[calc(100%-90px)] flex-col gap-2'>
-                <input type="tel"  name="phoneNo" id="phonenumber" placeholder="12345 67890" className="form-style" {...register("phoneNo",{required:{value:true,message:"Please enter phone Number *"}, maxLength:{value:10,message:"Enter a valid Phone Number *"},minLength:{value:8,message:"Enter a valid Phone Number *"}})} />
+                <input type="tel"  id="phonenumber" placeholder="12345 67890" className="form-style" {...register("phoneNo",{required:{value:true,message:"Please enter phone Number *"}, maxLength:{value:10,message:"Enter a valid Phone Number *"},minLength:{value:8,message:"Enter a valid Phone Number *"}})} />
                 {
                     errors.phoneNo && <span className=" text-yellow-25">{errors.phoneNo.message}</span>
                 }
@@ -91,7 +91,7 @@ const ContactUsForm = () => {
             </div>
         </div>
 
-        <div className="flex flex-col gap-2"><label htmlFor="message" className="lable-style">Message</label><textarea name="message" id="message" cols="30" rows="7" placeholder="Enter your message here" className="form-style"  {...register("message",{required:true})}/>
+        <div className="flex flex-col gap-2"><label htmlFor="message" className="lable-style">Message</label><textarea  id="message" cols={30} rows={7} placeholder="Enter your message here" className="form-style"  {...register("message",{required:true})}/>
         {
             errors.message && <span className=" text-yellow-25">Enter your message *</span>
         }</div>
