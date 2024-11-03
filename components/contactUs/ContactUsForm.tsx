@@ -86,6 +86,8 @@ const ContactUsForm = () => {
                 <input type="tel"  id="phonenumber" placeholder="12345 67890" className="form-style" {...register("phoneNo",{required:{value:true,message:"Please enter phone Number *"}, maxLength:{value:10,message:"Enter a valid Phone Number *"},minLength:{value:8,message:"Enter a valid Phone Number *"}})} />
                 {
                     errors.phoneNo && <span className=" text-yellow-25">{errors.phoneNo.message}</span>
+
+                    
                 }
                 </div>
             </div>
