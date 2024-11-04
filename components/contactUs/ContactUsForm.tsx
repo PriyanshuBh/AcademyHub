@@ -70,7 +70,7 @@ const ContactUsForm = () => {
             <label htmlFor="phoneNo" className="lable-style">Phone Number</label>
             <div className='flex gap-5'>
                 <div className='flex w-[81px] flex-col gap-2'>
-                <select type="text" id="countryCode" className="form-style" {...register("countryCode",{required:true})}>
+                <select  id="countryCode" className="form-style" {...register("countryCode",{required:true})}>
                     {
                         countryCode.map((item,index)=>{
                             return(
@@ -83,12 +83,15 @@ const ContactUsForm = () => {
                 </select>
                 </div>
                 <div className='flex w-[calc(100%-90px)] flex-col gap-2'>
-                <input type="tel"  id="phonenumber" placeholder="12345 67890" className="form-style" {...register("phoneNo",{required:{value:true,message:"Please enter phone Number *"}, maxLength:{value:10,message:"Enter a valid Phone Number *"},minLength:{value:8,message:"Enter a valid Phone Number *"}})} />
-                {
-                    errors.phoneNo && <span className=" text-yellow-25">{errors.phoneNo.message}</span>
-
+                <input type="tel"  id="phonenumber" placeholder="12345 67890" className="form-style" {...register("phoneNo",{required:{value:true,message:"Please enter phone Number *"}, maxLength:{value:10,message:"Enter a Valid Phone Number *"},minLength:{value:8,message:"Enter a valid Phone Number *"}})} />
+               
+                {errors.phoneNo && (
+                    <span className="text-yellow-25">
+                        {typeof errors.phoneNo.message === "string" ? errors.phoneNo.message : "Invalid phone number"}
+                    </span>
+                )}
                     
-                }
+                
                 </div>
             </div>
         </div>
