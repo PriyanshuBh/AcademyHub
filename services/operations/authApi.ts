@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
- 
+
 import useLoadingBarStore from "@/store/useLoadingBarStore";
 import useAuthStore from "@/store/useAuthStore";
 import useProfileStore from "@/store/useProfileStore";
@@ -23,14 +23,13 @@ const {
   RESETPASSWORD_API,
 } = endpoints;
 
-const { setProgress } = useLoadingBarStore.getState();
-const { setLoading, setToken } = useAuthStore.getState();
-const { setUser } = useProfileStore.getState();
-const { resetCart } = useCartStore.getState();
 
-export function sendOtp(email: string, router:(path: string) => void) {
-  return async () => {
+export async function sendOtp(email: string, router: (path: string) => void) {
+  const { setLoading } = useAuthStore.getState()
+  const { setProgress } = useLoadingBarStore.getState();
+
     // const toastId = toast.loading("Loading...")
+    console.log("in send otp authapi")
     setLoading(true);
     try {
       const response = await apiConnector("POST", SENDOTP_API, {
@@ -42,27 +41,26 @@ export function sendOtp(email: string, router:(path: string) => void) {
 
       console.log(response.data.success);
 
-      if (!response.data.success) { 
-          
+      if (!response.data.success) {
         throw new Error(response.data.message);
       }
 
       toast.success("OTP Sent Successfully");
       router("/verify-email");
-    } catch (error: ApiError | any) {
+    } catch (error) {
       console.log("SENDOTP API ERROR............", error);
       const errorMessage =
-        error?.response?.data?.message ||
+        (error as any)?.response?.data?.message ||
         "Something went wrong. Please try again.";
       toast.error(errorMessage);
       setProgress(100);
     }
     setLoading(false);
     // toast.dismiss(toastId)
-  };
+  ;
 }
 
-export function signUp(
+export async function signUp(
   accountType: string,
   firstName: string,
   lastName: string,
@@ -70,9 +68,11 @@ export function signUp(
   password: string,
   confirmPassword: string,
   otp: string,
-  router:(path: string) => void
+  router: (path: string) => void
 ) {
-  return async () => {
+  const { setLoading } = useAuthStore.getState()
+const { setProgress } = useLoadingBarStore.getState();
+ 
     const toastId = toast.loading("Loading...");
     setLoading(true);
     try {
@@ -102,54 +102,57 @@ export function signUp(
     }
     setLoading(false);
     toast.dismiss(toastId);
-  };
+  
 }
 
-export function login(
+export async function login(
   email: string,
   password: string,
   router: (path: string) => void
 ) {
-  return async () => {
-    console.log(" IN login api")
-    const toastId = toast.loading("Loading...");
-    setLoading(true);
-    try {
-      const response = await apiConnector("POST", LOGIN_API, {
-        email,
-        password,
-      });
+  const { setLoading, setToken } = useAuthStore.getState()
+  const { setUser } = useProfileStore.getState()
+const { setProgress } = useLoadingBarStore.getState();
 
-      console.log("LOGIN API RESPONSE............", response);
+  console.log(" IN login api function");
+  const toastId = toast.loading("Loading...");
+  setLoading(true);
+  try {
+    const response = await apiConnector("POST", LOGIN_API, {
+      email,
+      password,
+    });
 
-      if (!response.data.success) {
-        throw new Error(response.data.message);
-      }
-      setProgress(100);
-      toast.success("Login Successful");
-      setToken(response.data.token);
-      const userImage = response.data?.user?.image
-        ? response.data.user.image
-        : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`;
-      setUser({ ...response.data.user, image: userImage });
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-      localStorage.setItem("token", JSON.stringify(response.data.token));
-      router("/dashboard/my-profile");
-    } catch (error: ApiError | any) {
-      setProgress(100);
-      console.log("LOGIN API ERROR............", error);
-      const errorMessage =
-        error?.response?.data?.message ||
-        "Something went wrong. Please try again.";
-      toast.error(errorMessage);
+    console.log("LOGIN API RESPONSE............", response);
+
+    if (!response.data.success) {
+      throw new Error(response.data.message);
     }
-    setLoading(false);
-    toast.dismiss(toastId);
-  };
+    setProgress(100);
+    toast.success("Login Successful");
+    setToken(response.data.token);
+    const userImage = response.data?.user?.image
+      ? response.data.user.image
+      : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`;
+    setUser({ ...response.data.user, image: userImage });
+    localStorage.setItem("user", JSON.stringify(response.data.user));
+    localStorage.setItem("token", JSON.stringify(response.data.token));
+    router("/dashboard/my-profile");
+  } catch (error) {
+    setProgress(100);
+    console.log("LOGIN API ERROR............", error);
+    const errorMessage =
+    (error as any)?.response?.data?.message ||
+      "Something went wrong. Please try again.";
+    toast.error(errorMessage);
+  }
+  setLoading(false);
+  toast.dismiss(toastId);
 }
 
-export function getPasswordResetToken(email: string, setEmailSent: any) {
-  return async () => {
+export async function getPasswordResetToken(email: string, setEmailSent: any) {
+  const { setLoading } = useAuthStore.getState()
+ 
     const toastId = toast.loading("Loading...");
     setLoading(true);
     try {
@@ -171,16 +174,18 @@ export function getPasswordResetToken(email: string, setEmailSent: any) {
     }
     toast.dismiss(toastId);
     setLoading(false);
-  };
+  ;
 }
 
-export function resetPassword(
+export async function resetPassword(
   password: string,
   confirmPassword: string,
   token: any,
   setresetComplete: any
 ) {
-  return async () => {
+ 
+  const { setLoading } = useAuthStore.getState()
+
     const toastId = toast.loading("Loading...");
     setLoading(true);
     try {
@@ -204,11 +209,14 @@ export function resetPassword(
     }
     toast.dismiss(toastId);
     setLoading(false);
-  };
+  ;
 }
 
-export function logout(router:(path: string) => void) {
-  return () => {
+export function logout(router: (path: string) => void) {
+
+    const { setToken } = useAuthStore.getState()
+    const { resetCart } = useCartStore.getState()
+    const { setUser } = useProfileStore.getState()
     setToken(null);
     setUser(null);
     resetCart();
@@ -216,11 +224,13 @@ export function logout(router:(path: string) => void) {
     localStorage.removeItem("user");
     toast.success("Logged Out");
     router("/");
-  };
+  ;
 }
 
-export function forgotPassword(email: string, setEmailSent: any) {
-  return async () => {
+export async function  forgotPassword(email: string, setEmailSent: any) {
+
+  const { setLoading } = useAuthStore.getState()
+
     // const toastId = toast.loading("Loading...")
     setLoading(true);
     try {
@@ -242,5 +252,5 @@ export function forgotPassword(email: string, setEmailSent: any) {
     }
     // toast.dismiss(toastId)
     setLoading(false);
-  };
+  ;
 }
