@@ -1,5 +1,4 @@
 "use client";
-import { console } from "node:inspector/promises";
 import { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import Link from "next/link";
@@ -30,7 +29,10 @@ function LoginForm() {
 
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
+    console.log("object");
     login(email, password, router.push);
+    console.log("object2");
+
   };
 
   return (

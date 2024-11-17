@@ -83,7 +83,7 @@ const NavBar = () => {
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         <Link href="/">
           <img
-            src={"../../public/Logo/Logo-Full-Light.png"}
+            src={"/Logo/Logo-Full-Light.png"}
             width={160}
             alt="Academy Hub"
             height={42}

@@ -1,25 +1,27 @@
-import { FcGoogle } from "react-icons/fc"
+import { FcGoogle } from "react-icons/fc";
+import Image from 'next/image'
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
+import useAuthStore from "@/store/useAuthStore";
 
-import LoginForm from "./LoginForm"
-import SignupForm from "./SignupForm"
-import useAuthStore from "@/store/useAuthStore"
-
-interface TemplateProps  {
-  title : string; 
+interface TemplateProps {
+  title: string;
   description1: string;
   description2: string;
-  image : string;
-  formType: string; 
-} 
+  image: string;
+  formType: string;
+}
 
-  
-
-function Template({ title, description1, description2, image, formType } : TemplateProps) {
+function Template({
+  title,
+  description1,
+  description2,
+  image,
+  formType,
+}: TemplateProps) {
   const { loading } = useAuthStore();
 
-  return ( 
-    
-    
+  return (
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
       {loading ? (
         <div className="spinner"></div>
@@ -38,14 +40,14 @@ function Template({ title, description1, description2, image, formType } : Templ
             {formType === "signup" ? <SignupForm /> : <LoginForm />}
           </div>
           <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0">
-            <img
-              src={"../../../public/Images/frame.png"}
+            <Image
+              src={"/Images/frame.png"}
               alt="Pattern"
               width={558}
               height={504}
               loading="lazy"
             />
-            <img
+            <Image
               src={image}
               alt="Students"
               width={558}
@@ -57,7 +59,7 @@ function Template({ title, description1, description2, image, formType } : Templ
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default Template
+export default Template;

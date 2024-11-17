@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 function Login() {
   const [showDemo, setShowDemo] = useState(true);
 
-  const navigate = useRouter();
+  const  router = useRouter();
   return (
     <>
       {/* test login ID */}
@@ -54,7 +54,7 @@ function Login() {
                   login(
                     "kumarhimanshusangwan@gmail.com",
                     "12345",
-                    navigate.push
+                     router.push
                   );
                 }}
                 className="bg-yellow-100 font-semibold mt-4 mb-1 text-richblack-900 px-4 py-2 rounded-md flex"
@@ -66,7 +66,7 @@ function Login() {
             <div>
               <button
                 onClick={() => {
-                  login("1234@gmail.com", "12345", navigate.push);
+                  login("1234@gmail.com", "12345",  router.push);
                 }}
                 className="bg-yellow-100 font-semibold text-richblack-900 px-4 py-2 rounded-md flex"
               >
@@ -81,7 +81,7 @@ function Login() {
         title="Welcome Back"
         description1="Build skills for today, tomorrow, and beyond."
         description2="Education to future-proof your career."
-        image={"@/public/Images/login.webp"}
+        image={"/Images/login.webp"}
         formType="login"
       />
     </>
