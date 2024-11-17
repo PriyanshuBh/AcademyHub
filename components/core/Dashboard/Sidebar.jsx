@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 
-import { sidebarLinks } from '../../../data/dashboard-links'
+import { sidebarLinks } from '@/lib/data/dashboard-links'
 import {logout} from "@/services/operations/authApi"
-import { useDispatch, useSelector } from 'react-redux'
+
 import SidebarLink from './SidebarLink'
-import { useNavigate } from 'react-router-dom'
-import {VscSignOut} from "react-icons/vsc"
+
+import {VscSignOut,VscSettingsGear} from "react-icons/vsc"
 import ConfirmationModal from '../../common/ConfirmationModal'
-import { setCourse, setStep } from '../../../slices/courseSlice'
+
+import useAuthStore from '@/store/useAuthStore'
+import useProfileStore from '@/store/useProfileStore'
 
 
 
@@ -15,10 +17,11 @@ import { setCourse, setStep } from '../../../slices/courseSlice'
 
 const Sidebar = () => {
 
-    const {user, loading: profileLoading} = useSelector((state) => state.profile);
-    const {loading:authLoading} = useSelector((state)=>state.auth);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+   
+   const {user,loading:profileLoading}=useProfileStore();
+    const {loading:authLoading}=useAuthStore();
+    
+    const navigate = useRouter();
     const [confirmationModal, setConfirmationModal] = useState(null);
 
     if(profileLoading || authLoading) {
@@ -39,7 +42,7 @@ const Sidebar = () => {
                     sidebarLinks.map((link) => {
                         if(link.type && user?.accountType !== link.type) return null;
                         return (
-                            <SidebarLink key={link.id}  link={link} iconName={link.icon} />
+                            <SidebarLink key={link.id}  path={link.path} name={link.name} iconName={link.icon} />
                         )
                     })}
             </div>
@@ -49,7 +52,7 @@ const Sidebar = () => {
             <div className='flex flex-col'>
                     <SidebarLink 
                         link={{name:"Settings", path:"/dashboard/settings"}}
-                        iconName="VscSettingsGear"
+                        iconName ={ VscSettingsGear}
                     />
 
                     <button 
