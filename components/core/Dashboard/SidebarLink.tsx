@@ -1,24 +1,28 @@
 import React from "react";
 
-import { useRouter } from 'next/router';
+import { useRouter,usePathname } from 'next/navigation';
 import useCourseStore from "@/store/useCourseStore";
 import Link from "next/link";
 
 interface sidebarlinkProps {
-  name: string;
   path: string;
+  name: string;
+
+ 
 
   iconName: React.ElementType;
 }
 
 const SidebarLink = ({ path, name, iconName:Icon }: sidebarlinkProps) => {
+
     const router = useRouter();
+    const pathname= usePathname();
   const { setEditCourse } = useCourseStore();
 
 
 
   const matchRoute = (route: string) => {
-    return router.pathname === route;
+    return pathname === route;
   };
 
   return (

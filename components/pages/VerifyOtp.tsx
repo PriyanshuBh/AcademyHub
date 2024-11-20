@@ -2,8 +2,9 @@ import React, { useEffect } from 'react'
 import OTPInput from 'react-otp-input'
 
 import { signUp } from '@/services/operations/authApi';
-import { useNavigate } from 'react-router-dom';
+
 import useAuthStore from '@/store/useAuthStore';
+import { useRouter } from 'next/navigation';
 
 const VerifyOtp = () => {
 
@@ -11,7 +12,7 @@ const VerifyOtp = () => {
    
  
  
-    const navigate = useNavigate();
+    const navigate = useRouter();
 
     const {loading,signupData}  = useAuthStore();
 
@@ -19,7 +20,7 @@ const VerifyOtp = () => {
     useEffect(() => {
 
         if(!signupData){
-            navigate('/signup');
+            navigate.push('/signup');
         }},[])
        
 
@@ -27,15 +28,15 @@ const VerifyOtp = () => {
 
         e.preventDefault();
         if (signupData) {
-          const { email, accountType, conformPassword, password, lastName, firstName } = signupData;
+          const { email, accountType, confirmPassword, password, lastName, firstName } = signupData;
           signUp(accountType,
             firstName,
             lastName,
             email,
             password,
-            conformPassword,
+            confirmPassword,
             otp,
-            navigate);
+            navigate.push);
       }
 
         
