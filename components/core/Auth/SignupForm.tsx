@@ -58,6 +58,7 @@ export default function SignupForm() {
     // Setting signup data to state
     // To be used after otp verification
     setSignupData(signupData)
+    console.log("in signupform",signupData);
     // Send OTP to user for verification
     sendOtp(formData.email, router.push)
 

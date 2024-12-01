@@ -9,8 +9,8 @@ interface DashboardProps {
   }
 const Dashboard: React.FC<DashboardProps> = ({ children }) => {
 
-    const {loading: authLoading} =useAuthStore();
-    const {loading: profileLoading} = useProfileStore();
+    const {loading: authLoading} =useAuthStore.getState();
+    const {loading: profileLoading} = useProfileStore.getState();
 
 
 
