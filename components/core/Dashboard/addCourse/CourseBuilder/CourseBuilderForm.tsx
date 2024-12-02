@@ -1,3 +1,4 @@
+ "use client"
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -31,7 +32,7 @@ const CourseBuilderForm = () => {
       ) {
         (setStep(3));
       } else {
-        toast.error("Please add atleast one lesson to esch section");
+        toast.error("Please add atleast one lesson to each section");
       }
     } else {
       toast.error("Please add atleast one section to continue");
