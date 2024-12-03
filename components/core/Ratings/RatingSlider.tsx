@@ -1,10 +1,11 @@
+ "use client"
 import React from 'react'
 import {Swiper, SwiperSlide} from "swiper/react"
 import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/pagination"
 import "swiper/css/navigation";
-import { Autoplay,Mousewheel, Keyboard}  from 'swiper'
+import { Autoplay,Mousewheel, Keyboard}  from 'swiper/modules'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import "react-loading-skeleton/dist/skeleton.css";
 import { useEffect, useState } from 'react';
@@ -14,7 +15,7 @@ import RatingStars from '../../common/RatingStars'
 
 
 const RatingSlider = () => {
-    const [Reviews, setReviews] = useState([]);
+    const [Reviews, setReviews] = useState<any>([]);
     const [Loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -60,7 +61,7 @@ const RatingSlider = () => {
                     }}
                     style={{
                         "--swiper-navigation-size": "20px",
-                      }}
+                      }as React.CSSProperties}
                     freeMode={false}
                     rewind={false}
                     centeredSlides={true}
@@ -80,7 +81,7 @@ const RatingSlider = () => {
                    
                 >
                     {
-                        Reviews?.map((review, index)=> (
+                        Reviews?.map((review:any, index:any)=> (
                             <SwiperSlide key={index}>
                                 <div className='flex flex-col gap-3 min-h-[150px] bg-richblack-800 p-3 text-[14px] text-richblack-25'>
                                     <div className='flex items-center gap-4'>
