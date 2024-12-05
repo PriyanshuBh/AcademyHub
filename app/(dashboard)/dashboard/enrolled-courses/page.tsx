@@ -16,7 +16,7 @@ const EnrolledCourses = () => {
 
   const getEnrolledCourses = async () => {
     setLoading(true);
-    const response = await getUserEnrolledCourses(token);
+    const response = await getUserEnrolledCourses(token ?? "");
     console.log("getEnrolledCourses -> response", response?.courseProgress);
     setLoading(false);
     setEnrolledCourses(response?.courses);
@@ -65,7 +65,7 @@ const EnrolledCourses = () => {
               key={index}
               onClick={() => {
                 navigate.push(
-                  `view-course/${course._id}/section/${course.courseContent[0]._id}/sub-section/${course.courseContent[0].subSection[0]}`
+                  `/view-course/${course._id}/${course.courseContent[0]._id}/${course.courseContent[0].subSection[0]}`
                 );
               }}
               className="flex items-center border border-richblack-700 rounded-none"
