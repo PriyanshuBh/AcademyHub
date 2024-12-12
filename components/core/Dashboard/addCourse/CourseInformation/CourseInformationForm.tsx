@@ -20,7 +20,8 @@ import useCourseStore from "@/store/useCourseStore";
 import useAuthStore from "@/store/useAuthStore";
 
 const CourseInformationForm = () => {
-  const { step,setStep, setCourse, setEditCourse } = useCourseStore();
+  const {  setCourse, setEditCourse } = useCourseStore();
+  const {step, setStep}= useCourseStore();
 
   const {
     register,
@@ -118,9 +119,8 @@ const CourseInformationForm = () => {
         setLoading(true);
         const result = await editCourseDetails(formData, token as string);
         setLoading(false);
-        
+
         if (result) {
-         
           setEditCourse(false);
           setStep(2);
 
@@ -153,12 +153,16 @@ const CourseInformationForm = () => {
     console.log("BEFORE add course API call");
     console.log("PRINTING FORMDATA", formData);
     const result = await addCourseDetails(formData, token as string);
+
+
     if (result) {
-    console.log(" inside", result);
-      setStep(2);
+      console.log(" inside", result);
       console.log(step);
+
+      setStep(() => 2);
+      console.log(step);
+
       setCourse(result);
-     
     }
     setLoading(false);
     console.log("AFTER add course API call");
