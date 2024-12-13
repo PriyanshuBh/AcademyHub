@@ -2,9 +2,9 @@
 import React from "react";
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
 import { forgotPassword } from "@/services/operations/authApi";
 import useAuthStore from "@/store/useAuthStore";
+import Link from "next/link";
 
 const ResetPassword = () => {
   const handleOnSubmit = (e: any) => {
@@ -54,7 +54,7 @@ const ResetPassword = () => {
             </button>
           </form>
           <div className="mt-6 flex items-center justify-between">
-            <Link to={"/login"}>
+            <Link href={"/login"}>
               <p className="flex items-center gap-x-2 text-richblack-5">
                 <svg
                   stroke="currentColor"
