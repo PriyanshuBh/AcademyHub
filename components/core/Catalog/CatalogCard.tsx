@@ -4,7 +4,7 @@ import GetAvgRating from '../../../utils/avgRating';
 import Link from 'next/link';
 
 
-const Course_Card = ({course, Height}:any) => {
+const CatalogCard = ({course, Height}:any) => {
 
     const [avgReviewCount, setAvgReviewCount] = useState(0);
 
@@ -44,4 +44,4 @@ const Course_Card = ({course, Height}:any) => {
   )
 }
 
-export default Course_Card
+export default CatalogCard
