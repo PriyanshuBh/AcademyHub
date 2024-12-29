@@ -5,7 +5,7 @@ interface CourseState {
   course: any | null;
   editCourse: boolean;
   paymentLoading: boolean;
-  setStep: (step: number) => void;
+  setStep: (newstep: number) => void;
   setCourse: (course: any) => void;
   setEditCourse: (editCourse: boolean) => void;
   setPaymentLoading: (loading: boolean) => void;
@@ -17,10 +17,10 @@ const useCourseStore = create<CourseState>((set) => ({
   course: null,
   editCourse: false,
   paymentLoading: false,
-  setStep: (step: number) => set({ step }),
+  setStep: (newstep) => set({ step: newstep }),
   setCourse: (course: any) => set({ course }),
-  setEditCourse: (editCourse: boolean) => set({ editCourse }),
-  setPaymentLoading: (loading: boolean) => set({ paymentLoading: loading }),
+  setEditCourse: (editCourse) => set({ editCourse }),
+  setPaymentLoading: (loading) => set({ paymentLoading: loading }),
   resetCourseState: () =>
     set({
       step: 1,
