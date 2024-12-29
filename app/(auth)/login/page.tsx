@@ -52,8 +52,8 @@ function Login() {
               <button
                 onClick={() => {
                   login(
-                    "kumarhimanshusangwan@gmail.com",
-                    "12345",
+                    "rockpriyanshubh@gmail.com",
+                    "111",
                      router.push
                   );
                 }}
@@ -66,7 +66,7 @@ function Login() {
             <div>
               <button
                 onClick={() => {
-                  login("1234@gmail.com", "12345",  router.push);
+                  login("rock.coc.india@gmail.com", "1234",  router.push);
                 }}
                 className="bg-yellow-100 font-semibold text-richblack-900 px-4 py-2 rounded-md flex"
               >

@@ -1,5 +1,4 @@
-
-
+"use client"
 import useCartStore from "@/store/useCartStrore";
 import RenderCartCourses from "@/components/core/Dashboard/RenderCartCourses";
 import RenderTotalAmount from "@/components/core/Dashboard/RenderTotalAmount";
@@ -8,7 +7,7 @@ import RenderTotalAmount from "@/components/core/Dashboard/RenderTotalAmount";
 
 export default function Cart() {
 
-    const {total, totalItems} = useCartStore.getState();
+    const {total, totalItems} = useCartStore();
     return (
         <div className="mx-auto w-11/12 max-w-[1000px] py-10">
             <h1 className="mb-14 text-3xl font-medium text-richblack-5 montserrat">Cart</h1>
