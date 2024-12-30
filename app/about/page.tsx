@@ -8,7 +8,7 @@ import StatsComponent from "@/components/core/AboutPage/Stats";
 import LearningGrid from "@/components/core/AboutPage/LearningGrid";
 import ContactFormSection from "@/components/core/AboutPage/ContactFormSection";
 import Footer from "@/components/common/Footer";
-// import RatingSlider from '@/components/core/Ratings/RatingSlider';
+import RatingSlider from '@/components/core/Ratings/RatingSlider';
 
 const About = () => {
   return (
@@ -20,7 +20,7 @@ const About = () => {
             Driving Innovation in Online Education for a
             <HighlightText text={"Brighter Future"} />
             <p className="mx-auto mt-3 text-center text-base font-medium text-richblack-300 lg:w-[95%]">
-              Studynotion is at the forefront of driving innovation in online
+              Academy Hub is at the forefront of driving innovation in online
               education. We're passionate about creating a brighter future by
               offering cutting-edge courses, leveraging emerging technologies,
               and nurturing a vibrant learning community.
@@ -132,7 +132,7 @@ const About = () => {
           <h2 className="text-center text-4xl font-semibold mt-8 text-richblack-5 mb-5">
             Reviews from other learners
           </h2>
-          {/* <RatingSlider /> */}
+          <RatingSlider />
         </div>
       </section>
       <Footer />

@@ -1,4 +1,4 @@
- "use client"
+"use client";
 import React, { useEffect } from "react";
 import OTPInput from "react-otp-input";
 
@@ -22,7 +22,7 @@ const VerifyOtp = () => {
 
   const handleOnSubmit = (e: any) => {
     e.preventDefault();
-    console.log("verify-email",signupData);
+    console.log("verify-email", signupData);
     if (signupData) {
       const {
         email,
