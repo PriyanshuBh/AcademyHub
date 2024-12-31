@@ -1,12 +1,13 @@
+"use client"
 import React from 'react'
 
 import { useState } from 'react';
 import { categories } from '@/services/apis';
 import { apiConnector } from '@/services/apiConnector';
 import { useEffect } from 'react';
-import CourseSlider from '@/Components/core/Catalog/CourseSlider';
+import CourseSlider from '@/components/core/Catalog/CourseSlider';
 import { getCatalogaPageData } from '@/services/operations/pageAndComponentData';
-import CatalogCard from '@/Components/core/Catalog/CatalogCard';
+import CatalogCard from '@/components/core/Catalog/CatalogCard';
 
 
 const Catalog = ({ params }: { params: { catalog: string } }) => {
