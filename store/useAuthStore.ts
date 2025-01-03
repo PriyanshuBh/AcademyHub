@@ -6,7 +6,7 @@ interface signupDataType{
   lastName: string;
   email:string;
   password:string;
-  conformPassword:string;
+  confirmPassword:string;
 }
 
 interface AuthState {
