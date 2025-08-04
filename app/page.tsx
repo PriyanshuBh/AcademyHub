@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import HighlightText from "@/components/core/HomePage/HighlightText";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,37 +11,44 @@ import InstructorSection from "@/components/core/HomePage/InstructorSection";
 import ExploreMore from "@/components/core/HomePage/ExploreMore";
 import useLoadingBarStore from "@/store/useLoadingBarStore";
 import RatingSlider from "@/components/core/Ratings/RatingSlider";
+import { ArrowRightIcon } from "lucide-react";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 export default function Home() {
-  const {setProgress} = useLoadingBarStore.getState();
+  const { setProgress } = useLoadingBarStore.getState();
   return (
     <main>
       <div>
         {/* section1 */}
-        <div className=" mx-auto relative flex flex-col w-11/12 max-w-maxContent items-center justify-between text-white ">
+        <div className=" mx-auto relative flex flex-col w-9/12 max-w-maxContent items-center justify-between text-white ">
           <Link
             href="/signup"
-            onClick={()=>{setProgress(100)}}
+            onClick={() => {
+              setProgress(100);
+            }}
+            className="group mt-20 relative grid overflow-hidden rounded-full px-4 py-1 shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset] transition-colors duration-200"
           >
-            <div className=" group mt-16 p-1 mx-auto rounded-full bg-richblack-800 font-bold transition-all duration-200 hover: scale-95 w-fit max-w-maxContent">
-              <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900">
-                <p>Become an Instructor</p>
-                <FaArrowRight />
-              </div>
-            </div>
+            <span className="spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-full [mask:linear-gradient(white,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:rotate-[-90deg] before:animate-rotate before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]" />
+            <span className="backdrop absolute inset-[1px] rounded-full bg-pure-greys-700 transition-colors duration-200 group-hover:bg-pure-greys-900" />
+            <span className="h-full w-full blur-md absolute bottom-0 inset-x-0 bg-gradient-to-tr from-[#FAFAFA]/20"></span>
+            <span className="z-10 py-0.5 text-base text-richblack-100 flex items-center justify-center gap-1">
+              ✨ Become an Instructor
+              <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </span>
           </Link>
-          <div className="text-center text-3xl md:text-4xl font-semibold mt-7">
+        
+          <div className="text-center w-[90%] sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.15]  font-semibold mt-7">
             Empower Your Future With
             <HighlightText text="Coding Skills" />
           </div>
-          <div className=" mt-4 w-[90%] text-left md:text-center text-sm md:text-lg font-bold text-richblack-300">
+          <div className=" mt-8 w-[80%] text-left md:text-center text-sm md:text-lg font-bold text-richblack-300">
             With our online coding courses, you can learn at your own pace, from
             anywhere in the world, and get access to a wealth of resources,
             including hands-on projects, quizzes, and personalized feedback from
             instructors.
           </div>
 
-          <div className="flex flex-row gap-7 mt-8">
+          <div className="flex flex-row gap-7 mt-10">
             <CTAButton active={true} linkto={"/signup"}>
               Learn More
             </CTAButton>
@@ -50,13 +57,18 @@ export default function Home() {
             </CTAButton>
           </div>
 
-          <div className="mx-3 my-12 shadow-blue-200 w-[70%] relative">
-            <div className="grad2 -top-10 w-[800px]"></div>
-            <video className="video" muted loop autoPlay>
-              <source src={"/images/banner.mp4"} type="video/mp4" />
-            </video>
+    
+          <div className="relative pt-20 pb-20 md:py-32 px-2 bg-transparent w-full">
+            <div className="absolute md:top-[10%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
+            <div className="-m-2 rounded-xl p-2 border border-richblack-800 lg:-m-4 lg:rounded-2xl bg-opacity-50 backdrop-blur-3xl">
+              {/* <BorderBeam size={250} duration={12} delay={9} /> */}
+              <video className="video" muted loop autoPlay>
+                <source src={"/images/banner.mp4"} type="video/mp4" />
+              </video>
+              <div className="absolute -bottom-4 inset-x-0 w-full h-1/2 bg-gradient-to-t from-[#0a0a0a] z-40"></div>
+              <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-[#0a0a0a] z-50"></div>
+            </div>
           </div>
-
           <div>
             <CodeBlocks
               position={"lg:flex-row"}
@@ -133,8 +145,9 @@ export default function Home() {
 
           <div className="hidden lg:block lg:h-[200px]"></div>
 
-          <div className="bg-pure-greys-5 text-richblack-700 mt-6">
-            <div className=" homepage_bg h-[310px]">
+          <div className="bg-richblack-900 text-richblack-5 mt-6">
+            <div className="  h-[310px]">
+              
               <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
                 <div className="h-[150px]"></div>
                 <div className="flex flex-row gap-7 text-white ">
@@ -181,7 +194,7 @@ export default function Home() {
 
             {/* Review Slider here */}
           </div>
-          <div className=" mb-16 mt-3">
+          <div className=" mb-16 mt-3 w-screen ">
             <h2 className="text-center text-2xl md:text-4xl font-semibold mt-8 text-richblack-5 mb-5">
               Reviews from other learners
             </h2>

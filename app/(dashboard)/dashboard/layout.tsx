@@ -24,9 +24,9 @@ const Dashboard: React.FC<DashboardProps> = ({ children }) => {
 
 
   return (
-    <div className='relative flex bg-richblack-400'>
+    <div className='relative flex bg-[#0a0a0a]'>
         <Sidebar />
-        <div className=' flex-1 overflow-auto bg-richblack-900'>
+        <div className=' flex-1 overflow-auto bg-[#0a0a0a]'>
             <div className='py-10'>
             {children}
             </div>
