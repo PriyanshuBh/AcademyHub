@@ -52,9 +52,9 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <div className=' box-content bg-richblack-800 px-4'>
-      <div className='mx-auto flex min-h-[260px]  flex-col justify-center gap-4 '>
+    <div className='bg-[#0a0a0a] z-10'>
+      <div className=' box-content bg-[#0a0a0a] px-4 relative'>
+      <div className='mx-auto flex min-h-[260px] z-10 flex-col justify-center gap-4 '>
         <p className='text-sm text-richblack-300'>Home / Catalog / <span className='text-yellow-25'>{Catalog.catalog}</span> </p>
         <p className='text-3xl text-richblack-5'>{Catalog?.catalog}</p>
         <p className='max-w-[870px] text-richblack-200'>
@@ -63,7 +63,7 @@ useEffect(() => {
       </div>
       </div>
 
-      <div className=' mx-auto box-content w-full max-w-maxContentTab px-2 py-12 lg:max-w-maxContent'>
+      <div className=' mx-auto box-content w-full max-w-maxContentTab px-2 py-12 lg:max-w-maxContent bg-[#0a0a0a]'>
         <h2 className='Courses to get you started'>
         Courses to get you started
         </h2>

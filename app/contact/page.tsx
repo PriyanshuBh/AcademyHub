@@ -5,8 +5,8 @@ import RatingSlider from "@/components/core/Ratings/RatingSlider";
 const ContactUs = () => {
   return (
     <div>
-      <div className="mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white lg:flex-row">
-        <div className="lg:w-[40%]">
+      <div className="mx-auto mt-20 flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-white lg:flex-row relative">
+        <div className="lg:w-[40%] z-10">
           <div className="flex flex-col gap-6 rounded-xl bg-richblack-800 p-4 lg:p-6">
             <div className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200">
               <div className="flex flex-row items-center gap-3">
@@ -28,7 +28,7 @@ const ContactUs = () => {
                 </h1>
               </div>
               <p className="font-medium">Our friendly team is here to help.</p>
-              <p className="font-semibold">info@studynotion.com</p>
+              <p className="font-semibold">info@academyhub.com</p>
             </div>
             <div className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200">
               <div className="flex flex-row items-center gap-3">
@@ -77,7 +77,7 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <div className="lg:w-[60%]">
+        <div className="lg:w-[60%] bg-[#0a0a0a] z-10">
           <div className="border border-richblack-600 text-richblack-300 rounded-xl p-7 lg:p-14 flex gap-3 flex-col">
             <h1 className="text-4xl leading-10 font-semibold text-richblack-5">
               Got a Idea? We've got the skills. Let's team up
@@ -91,7 +91,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
-      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
+      <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8  text-white">
         <h1 className="text-center text-4xl font-semibold mt-8">
           Reviews from other leraners
         </h1>
