@@ -1,3 +1,5 @@
+"use client" 
+
 import React from 'react'
 import { createCategory } from '@/services/operations/courseDetailsAPI';
 import useAuthStore from '@/store/useAuthStore';

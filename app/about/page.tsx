@@ -14,7 +14,7 @@ const About = () => {
   return (
     <div className="mx-auto text-white">
       {/* section 1 */}
-      <section className="bg-richblack-700">
+      <section className="">
         <div className="relative mx-auto flex w-11/12 max-w-maxContent flex-col justify-between gap-10 text-center text-white">
           <header className="mx-auto py-20 text-4xl font-semibold lg:w-[70%]">
             Driving Innovation in Online Education for a
@@ -28,9 +28,9 @@ const About = () => {
           </header>
           <div className="sm:h-[70px] lg:h-[150px]"></div>
           <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
-            <img src={"/Images/aboutus1.webp"} />
-            <img src={"/Images/aboutus2.webp"} />
-            <img src={"/Images/aboutus3.webp"} />
+            <img src={"/Images/aboutus1.webp"} className="rounded-xl"/>
+            <img src={"/Images/aboutus2.webp"} className="rounded-xl" />
+            <img src={"/Images/aboutus3.webp"} className="rounded-xl" />
           </div>
         </div>
       </section>
@@ -77,7 +77,7 @@ const About = () => {
             {/* foudning story right box */}
             <div>
               <img
-                className="shadow-[0_0_20px_0] shadow-[#FC6767]"
+                className="shadow-[0_0_20px_0] rounded-xl shadow-[#FC6767]"
                 src={"/Images/FoundingStory.png"}
               />
             </div>
@@ -135,7 +135,6 @@ const About = () => {
           <RatingSlider />
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
