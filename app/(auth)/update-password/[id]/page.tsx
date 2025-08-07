@@ -1,3 +1,5 @@
+ "use client"
+
 import React from 'react'
 import { useState } from 'react'
 
@@ -13,7 +15,7 @@ const ResetPassword = () => {
     const id = useParams();
    
     const token = id
-
+      console.log("TOKEN ID", token);
     const handleOnSubmit = (e:any) => {
         e.preventDefault();
         if (formData.password === formData.confirmPassword) {
@@ -38,7 +40,7 @@ const ResetPassword = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   return (
-    <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center'>
+    <div className='grid min-h-[calc(100vh-3.5rem)] place-items-center z-20'>
             {
                 loading?(<div className="custom-loader"></div>):
                 (<div className='max-w-[500px] p-4 lg:p-8 '>

@@ -18,7 +18,7 @@ function Login() {
       <div
         className={`${
           showDemo ? "" : "hidden"
-        } justify-center items-center absolute bg-richblack-400 top-52 md:top-32 md:right-[50%] right-[10%] p-6 -rotate-[20deg] z-20 `}
+        } justify-center items-center absolute bg-richblack-400 top-52 md:top-32 md:right-[50%] right-[10%] p-6 -rotate-[20deg] z-30 rounded-lg `}
       >
         <div className="flex flex-col gap-2 relative">
           <div
