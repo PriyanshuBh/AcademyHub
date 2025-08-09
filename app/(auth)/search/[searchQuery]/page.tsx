@@ -30,8 +30,8 @@ const SearchCourse = () => {
 
 
   return (
-    <div>
-        <div className='mx-auto flex min-h-[260px]  flex-col justify-center gap-4 p-5 bg-richblack-800 '>
+    <div className='relative'>
+        <div className='mx-auto flex min-h-[260px]  flex-col justify-center gap-4 p-5 z-20 '>
         <p className='text-sm text-richblack-300'>Home / Search / <span className='text-yellow-25'>{searchQuery}</span> </p>
         <p className='text-3xl text-richblack-5'>Search Results for {searchQuery}</p>
         <p className='max-w-[870px] text-richblack-200'>
@@ -40,7 +40,7 @@ const SearchCourse = () => {
         </div>
         {
             loading ? (
-                <div className='flex gap-6 flex-wrap justify-evenly overflow-hidden m-9'>
+                <div className='flex gap-6 flex-wrap justify-evenly overflow-hidden m-9 z-20'>
                 <SkeletonTheme baseColor="#2C333F" highlightColor="#161D29">
                 <div className=''>
                   <Skeleton  className="md:h-[200px] lg:w-[400px] h-[100px] w-[200px] rounded-xl" />
@@ -68,7 +68,7 @@ const SearchCourse = () => {
                 </div>
             ):
 
-            searchResults?.length===0 ? (<div className='mx-auto flex min-h-[500px] items-center  flex-col justify-center gap-4 p-5 bg-richblack-900 '>
+            searchResults?.length===0 ? (<div className='mx-auto flex min-h-[500px] items-center  flex-col justify-center gap-4 p-5 z-20 '>
                 <p className='text-3xl text-richblack-5'>No Results Found</p>
                 <HiOutlineEmojiSad className=' text-richblack-100 text-[100px]' />
             </div>):
