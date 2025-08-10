@@ -34,7 +34,7 @@ const RatingSlider = () => {
         getReviews();
     }, [])
   return (
-    <div>
+    <div className='w-8/12 mx-auto'>
         <Swiper
                  mousewheel={
                       {
@@ -83,7 +83,7 @@ const RatingSlider = () => {
                     {
                         Reviews?.map((review:any, index:any)=> (
                             <SwiperSlide key={index}>
-                                <div className='flex flex-col gap-3 min-h-[150px] bg-richblack-800 p-3 text-[14px] text-richblack-25'>
+                                <div className='flex flex-col gap-3 min-h-[160px] bg-richblack-800 p-3 text-[14px] text-richblack-25 w-[400px]'>
                                     <div className='flex items-center gap-4'>
                                         <img src={review?.user?.image} alt="user" className='h-9 w-9 rounded-full object-cover' />
                                         <div className='flex flex-col'>
@@ -91,14 +91,14 @@ const RatingSlider = () => {
                                             <p className='text-[12px] font-medium text-richblack-500'>{review?.course?.courseName}</p>
                                         </div>
                                     </div>
-                                    <div className='font-medium text-richblack-25'>{review?.review.slice(0,70)}...</div>
+                                    <div className='font-medium text-richblack-25 py-2'>{review?.review.slice(0,70)}...</div>
                                     <RatingStars Review_Count={review?.rating} />
                                 </div>
                             </SwiperSlide>
                         ))
                     }   
-                    {/* <div className='swiper-button-next'></div> */}
-                    {/* <div className='swiper-button-prev'></div> */}
+                    {/* <div className='swiper-button-next'></div>
+                    <div className='swiper-button-prev'></div> */}
                 </Swiper>
     </div>
   )
