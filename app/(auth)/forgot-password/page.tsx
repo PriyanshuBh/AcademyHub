@@ -16,7 +16,7 @@ const ResetPassword = () => {
   const [emailSent, setemailSent] = useState(false);
   const [email, setemail] = useState("");
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center z-20">
       {loading ? (
         <div className="custom-loader"></div>
       ) : (
