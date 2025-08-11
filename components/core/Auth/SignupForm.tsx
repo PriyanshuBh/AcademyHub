@@ -88,7 +88,7 @@ export default function SignupForm() {
   ]
 
   return (
-    <div>
+    <div className="">
       {/* Tab */}
       <Tab tabData={tabData} field={accountType} setField={setAccountType} />
       {/* Form */}

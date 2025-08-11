@@ -22,7 +22,7 @@ function Template({
   const { loading } = useAuthStore();
 
   return (
-    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+    <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center z-20 ">
       {loading ? (
         <div className="spinner"></div>
       ) : (
@@ -46,6 +46,7 @@ function Template({
               width={558}
               height={504}
               loading="lazy"
+              className="rounded-xl opacity-60"
             />
             <Image
               src={image}
@@ -53,7 +54,7 @@ function Template({
               width={558}
               height={504}
               loading="lazy"
-              className="absolute -top-4 right-4 z-10"
+              className="absolute -top-4 right-4 rounded-xl z-10"
             />
           </div>
         </div>
