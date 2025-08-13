@@ -24,13 +24,16 @@ const Community = ["Forums", "Chapters", "Events"];
 
 const Footer = () => {
   return (
-    <div className="bg-richblack-800">
-      <div className="flex lg:flex-row gap-8 items-center justify-between w-11/12 max-w-maxContent text-richblack-400 leading-6 mx-auto relative py-14">
-        <div className="border-b w-[100%] flex flex-col lg:flex-row pb-5 border-richblack-700">
+    <div className="bg-[#0a0a0a] w-full">
+      <div className="flex lg:flex-row gap-8 items-center justify-between w-full   max-lg:max-w-maxContent lg:px-32 text-richblack-400 leading-6 mx-auto relative py-14">
+        <div className="border-b w-full flex flex-col lg:flex-row pb-5 border-richblack-700 ">
           {/* Section 1 */}
           <div className="lg:w-[50%] flex flex-wrap flex-row justify-between lg:border-r lg:border-richblack-700 pl-3 lg:pr-5 gap-3">
             <div className="w-[30%] flex flex-col gap-3 lg:w-[30%] mb-7 lg:pl-0">
-              <Image src={Logo} alt="" className="object-contain" />
+            <div className="w-[180px] h-[40px]">
+            <span className="text-2xl font-bold text-white">AcademyHub</span>
+          </div>
+              {/* <Image src={Logo} alt="" className="object-contain" /> */}
               <h1 className="text-richblack-50 font-semibold text-[16px]">
                 Company
               </h1>
@@ -150,7 +153,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-row items-center justify-between w-11/12 max-w-maxContent text-richblack-400 mx-auto  pb-14 text-sm">
+      <div className="flex flex-row items-center justify-between w-11/12 max-lg:max-w-maxContent lg:px-20 text-richblack-400 mx-auto  pb-14 text-sm">
         {/* Section 1 */}
         <div className="flex justify-between lg:items-start items-center flex-col lg:flex-row gap-3 w-full">
           <div className="flex flex-row">
@@ -173,7 +176,7 @@ const Footer = () => {
           </div>
 
           <div className="text-center">
-            Made by Himanshu Sangwan 🗿 © 2023 Studynotion
+            Made by Priyanshu Bharti 🗿 © 2025 AcademyHub
           </div>
         </div>
       </div>
