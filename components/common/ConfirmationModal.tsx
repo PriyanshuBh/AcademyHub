@@ -16,7 +16,8 @@ const ConfirmationModal = ({modalData}:any) => {
                     onclick={modalData?.btn1Handler}
                     text={modalData?.btn1Text}
                     />
-                <button className='flex items-center bg-richblack-200 cursor-pointer gap-x-2 rounded-md py-2 text-sm md:text-lg px-3 md:px-5 font-semibold text-richblack-900 undefined' onClick={modalData?.btn2Handler}>
+                <button className='flex items-center bg-richblack-200 cursor-pointer gap-x-2 rounded-md py-2 text-sm md:text-lg px-3 md:px-5 font-semibold text-richblack-900 undefined' 
+                onClick={modalData?.btn2Handler}>
                     {modalData?.btn2Text}
                 </button>    
             </div>
