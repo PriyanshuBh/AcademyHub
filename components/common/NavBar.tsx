@@ -93,21 +93,24 @@ const NavBar = () => {
 
   return (
     <div
-      className={` flex sm:relative bg-richblack-900 w-screen relative z-50 h-14 items-center justify-center border-b-[1px] border-b-richblack-700 translate-y-  transition-all duration-500`}
+      className={` flex sm:relative bg-[#0a0a0a] w-screen relative z-50 h-14 items-center justify-center border-b-[1px] border-b-richblack-700 translate-y-  transition-all duration-500`}
     >
-      <div className="flex w-11/12 max-w-maxContent items-center justify-between">
+      <div className="flex w-11/12 max-w-maxContent items-center justify-evenly">
         <Link
           href="/"
           onClick={() => {
             setProgress(100);
           }}
         >
-          <img
+          <div className="w-[180px] h-[40px]  px-3 py-1 ">
+            <span className="text-2xl font-bold text-white ">AcademyHub</span>
+          </div>
+          {/* <img
             src={"/Logo/Logo-Full-Light.png"}
             width={160}
             alt="Academy Hub"
             height={42}
-          ></img>
+          ></img> */}
         </Link>
         {/* mobile Navbar */}
         {user && user?.accountType !== "Instructor" && (
@@ -162,7 +165,7 @@ const NavBar = () => {
                 >
                   <button
                     onClick={shownav}
-                    className=" mt-4 text-center text-[15px] px-6 py-2 rounded-md font-semibold bg-yellow-50 text-black hover:scale-95 transition-all duration-200"
+                    className=" mt-4 text-center text-[15px] px-6 py-2 rounded-md font-semibold bg-white text-black hover:scale-95 transition-all duration-200"
                   >
                     Login
                   </button>
@@ -178,7 +181,7 @@ const NavBar = () => {
                 >
                   <button
                     onClick={shownav}
-                    className="mt-4 text-center text-[15px] px-5 py-2 rounded-md font-semibold bg-yellow-50 text-black hover:scale-95 transition-all duration-200"
+                    className="mt-4 text-center text-[15px] px-5 py-2 rounded-md font-semibold bg-white text-black hover:scale-95 transition-all duration-200"
                   >
                     Signup
                   </button>
@@ -277,8 +280,8 @@ const NavBar = () => {
                       </g>
                     </svg>
 
-                    <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
-                      <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
+                    <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-700 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
+                      <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-700"></div>
                       {sublinks?.length < 0 ? (
                         <div></div>
                       ) : (
@@ -286,9 +289,9 @@ const NavBar = () => {
                           <Link
                             href={`/catalog/${items?.name}`}
                             key={index}
-                            className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
+                            className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-600"
                           >
-                            <p className="">{items?.name}</p>
+                            <p className="text-white">{items?.name}</p>
                           </Link>
                         ))
                       )}
