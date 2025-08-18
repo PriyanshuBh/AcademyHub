@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { FaCheck } from 'react-icons/fa';
 
@@ -8,7 +9,8 @@ import useCourseStore from '@/store/useCourseStore';
 
 const RenderSteps = () => {
 
-    const {step} = useCourseStore.getState();
+    const step = useCourseStore((state) => state.step);
+
     const steps = [
         {
             id:1,
@@ -23,6 +25,7 @@ const RenderSteps = () => {
             title: "Publishing Course",
         },
     ]
+  
 
   return (
     <>
@@ -62,6 +65,7 @@ const RenderSteps = () => {
         {step === 1 && <CourseInformationForm />}
         {step === 2 && <CourseBuilderForm/>}
         {step===3 && <PublishCourse/>}
+ 
     </>
   )
 }
