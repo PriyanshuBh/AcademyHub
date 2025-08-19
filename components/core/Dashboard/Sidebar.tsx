@@ -33,10 +33,10 @@ const Sidebar = () => {
   }
 
   return (
-    <div className=" text-white bg-richblack-800">
+    <div className=" text-white bg-[#0a0a0a] border-r-[1px]  border-r-richblack-700 ">
       <div
         className="hidden min-w-[222px] flex-col border-r-[1px] border-r-richblack-700 lg:flex
-        h-[calc[100vh-3.5rem)] bg-richblack-800 py-10"
+        h-[calc[100vh-3.5rem)] bg-[#0a0a0a] py-10"
       >
         <div className="flex flex-col">
           {sidebarLinks.map((link) => {
@@ -68,7 +68,7 @@ const Sidebar = () => {
                 text2: "You will be logged out of your Account",
                 btn1Text: "Logout",
                 btn2Text: "Cancel",
-                btn1Handler: () => logout(navigate.push),
+                btn1Handler: () =>  logout(navigate.push),
                 btn2Handler: () => setConfirmationModal(null),
               })
             }
