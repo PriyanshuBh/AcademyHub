@@ -75,8 +75,8 @@ const SearchCourse = () => {
             (
                 <div className='mx-auto flex flex-wrap p-5 gap-4 justify-evenly m-5'>
                 {searchResults?.map((item)=>(
-                    <div className='flex flex-col gap-4'>
-                    <CatalogCard key={item} course={item} Height={"lg:h-[250px] h-[100px]"} />
+                    <div key={item} className='flex flex-col gap-4'>
+                    <CatalogCard  course={item} Height={"lg:h-[250px] h-[100px]"} />
                     </div>
                 ))}
                 </div>
