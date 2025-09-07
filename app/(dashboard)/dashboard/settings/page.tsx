@@ -139,11 +139,11 @@ console.log("user  ",user);
           <div className="flex flex-col gap-5 lg:flex-row">
             <div className="flex flex-col gap-2 lg:w-[48%]">
               <label htmlFor="firstName" className=" text-richblack-50">First Name</label>
-              <input defaultValue={user.firstName || null} type="text" name="firstName" id="firstName" placeholder="Enter first name" className="form-style" onChange={handleOnChange}/>
+              <input defaultValue={user?.firstName || null} type="text" name="firstName" id="firstName" placeholder="Enter first name" className="form-style" onChange={handleOnChange}/>
               </div>
               <div className="flex flex-col gap-2 lg:w-[48%]">
                 <label htmlFor="lastName" className="text-richblack-50">Last Name</label>
-                <input defaultValue={user.lastName || null} type="text" name="lastName" id="lastName" placeholder="Enter first name" className="form-style" onChange={handleOnChange}/>
+                <input defaultValue={user?.lastName || null} type="text" name="lastName" id="lastName" placeholder="Enter first name" className="form-style" onChange={handleOnChange}/>
                 </div>
                 </div>
                 <div className="flex flex-col gap-5 lg:flex-row">
