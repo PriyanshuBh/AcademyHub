@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Instructor from "../../../public/Images/Instructor.png";
+import Instructor from "../../../public/assets/Instructor.png";
 import HighlightText from "./HighlightText";
 import CTAButton from "../HomePage/Button";
 import { FaArrowRight } from "react-icons/fa";

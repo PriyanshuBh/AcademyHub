@@ -11,7 +11,7 @@ import { useRouter } from "next/navigation";
 function Login() {
   const [showDemo, setShowDemo] = useState(true);
 
-  const  router = useRouter();
+  const router = useRouter();
   return (
     <>
       {/* test login ID */}
@@ -51,11 +51,7 @@ function Login() {
             <div>
               <button
                 onClick={() => {
-                  login(
-                    "rockpriyanshubh@gmail.com",
-                    "111",
-                     router.push
-                  );
+                  login("rockpriyanshubh@gmail.com", "111", router.push);
                 }}
                 className="bg-yellow-100 font-semibold mt-4 mb-1 text-richblack-900 px-4 py-2 rounded-md flex"
               >
@@ -66,7 +62,7 @@ function Login() {
             <div>
               <button
                 onClick={() => {
-                  login("rock.coc.india@gmail.com", "1234",  router.push);
+                  login("rock.coc.india@gmail.com", "1234", router.push);
                 }}
                 className="bg-yellow-100 font-semibold text-richblack-900 px-4 py-2 rounded-md flex"
               >
@@ -81,7 +77,7 @@ function Login() {
         title="Welcome Back"
         description1="Build skills for today, tomorrow, and beyond."
         description2="Education to future-proof your career."
-        image={"/Images/login.webp"}
+        image={"/assets/login.webp"}
         formType="login"
       />
     </>

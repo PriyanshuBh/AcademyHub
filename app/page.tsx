@@ -36,7 +36,7 @@ export default function Home() {
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </span>
           </Link>
-        
+
           <div className="text-center w-[90%] sm:text-5xl md:text-6xl lg:text-7xl !leading-[1.15]  font-semibold mt-7">
             Empower Your Future With
             <HighlightText text="Coding Skills" />
@@ -57,13 +57,12 @@ export default function Home() {
             </CTAButton>
           </div>
 
-    
           <div className="relative pt-20 pb-20 md:py-32 px-2 bg-transparent w-full">
             <div className="absolute md:top-[10%] left-1/2 gradient w-3/4 -translate-x-1/2 h-1/4 md:h-1/3 inset-0 blur-[5rem] animate-image-glow"></div>
             <div className="-m-2 rounded-xl p-2 border border-richblack-800 lg:-m-4 lg:rounded-2xl bg-opacity-50 backdrop-blur-3xl">
               {/* <BorderBeam size={250} duration={12} delay={9} /> */}
               <video className="video" muted loop autoPlay>
-                <source src={"/images/banner.mp4"} type="video/mp4" />
+                <source src={"/assets/banner.mp4"} type="video/mp4" />
               </video>
               <div className="absolute -bottom-4 inset-x-0 w-full h-1/2 bg-gradient-to-t from-[#0a0a0a] z-40"></div>
               <div className="absolute bottom-0 md:-bottom-8 inset-x-0 w-full h-1/4 bg-gradient-to-t from-[#0a0a0a] z-50"></div>
@@ -147,7 +146,6 @@ export default function Home() {
 
           <div className="bg-richblack-900 text-richblack-5 mt-6">
             <div className="  h-[310px]">
-              
               <div className="w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-5 mx-auto">
                 <div className="h-[150px]"></div>
                 <div className="flex flex-row gap-7 text-white ">

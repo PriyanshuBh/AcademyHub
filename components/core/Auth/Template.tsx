@@ -1,5 +1,5 @@
 import { FcGoogle } from "react-icons/fc";
-import Image from 'next/image'
+import Image from "next/image";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import useAuthStore from "@/store/useAuthStore";
@@ -41,7 +41,7 @@ function Template({
           </div>
           <div className="relative mx-auto w-11/12 max-w-[450px] md:mx-0">
             <Image
-              src={"/Images/frame.png"}
+              src={"/assets/frame.png"}
               alt="Pattern"
               width={558}
               height={504}

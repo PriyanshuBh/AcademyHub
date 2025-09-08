@@ -8,7 +8,7 @@ import StatsComponent from "@/components/core/AboutPage/Stats";
 import LearningGrid from "@/components/core/AboutPage/LearningGrid";
 import ContactFormSection from "@/components/core/AboutPage/ContactFormSection";
 import Footer from "@/components/common/Footer";
-import RatingSlider from '@/components/core/Ratings/RatingSlider';
+import RatingSlider from "@/components/core/Ratings/RatingSlider";
 
 const About = () => {
   return (
@@ -28,9 +28,9 @@ const About = () => {
           </header>
           <div className="sm:h-[70px] lg:h-[150px]"></div>
           <div className="absolute bottom-0 left-[50%] grid w-[100%] translate-x-[-50%] translate-y-[30%] grid-cols-3 gap-3 lg:gap-5">
-            <img src={"/Images/aboutus1.webp"} className="rounded-xl"/>
-            <img src={"/Images/aboutus2.webp"} className="rounded-xl" />
-            <img src={"/Images/aboutus3.webp"} className="rounded-xl" />
+            <img src={"/assets/aboutus1.webp"} className="rounded-xl" />
+            <img src={"/assets/aboutus2.webp"} className="rounded-xl" />
+            <img src={"/assets/aboutus3.webp"} className="rounded-xl" />
           </div>
         </div>
       </section>
@@ -78,7 +78,7 @@ const About = () => {
             <div>
               <img
                 className="shadow-[0_0_20px_0] rounded-xl shadow-[#FC6767]"
-                src={"/Images/FoundingStory.png"}
+                src={"/assets/FoundingStory.png"}
               />
             </div>
           </div>
