@@ -80,10 +80,10 @@ const ContactUs = () => {
         <div className="lg:w-[60%] bg-[#0a0a0a] z-10">
           <div className="border border-richblack-600 text-richblack-300 rounded-xl p-7 lg:p-14 flex gap-3 flex-col">
             <h1 className="text-4xl leading-10 font-semibold text-richblack-5">
-              Got a Idea? We've got the skills. Let's team up
+              Got a Idea? We have got the skills. Lets team up
             </h1>
             <p className="text-lg font-medium">
-              Tell us more about yourself and what you're got in mind.
+              Tell us more about yourself and what you are got in mind.
             </p>
             <div className="mt-7">
               <ContactUsForm />

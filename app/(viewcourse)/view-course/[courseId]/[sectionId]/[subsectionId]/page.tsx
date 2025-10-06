@@ -25,7 +25,7 @@ const ViewCourse = ({  params }:{ params: { courseId: string ,sectionId: string,
             (setCourseSectionData(courseData.courseDetails.courseContent));
             (setEntireCourseData( courseData.courseDetails));
             (setCompletedLectures(courseData.completedVideos));
-            var lecture = 0;
+            let lecture = 0;
             courseData?.courseDetails?.courseContent?.forEach((section:any) => {
                 lecture += section?.subSection?.length;
             });

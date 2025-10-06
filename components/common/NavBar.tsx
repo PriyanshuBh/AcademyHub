@@ -13,7 +13,7 @@ import ProfileDropDown from "../core/Auth/ProfileDropDown";
 import { apiConnector } from "@/services/apiConnector";
 import { categories } from "../../services/apis";
 
-import { useRouter as usenavigate } from "next/navigation";
+import { useRouter as useNavigate } from "next/navigation";
 import useLoadingBarStore from "@/store/useLoadingBarStore";
 import { usePathname } from 'next/navigation';
 
@@ -23,17 +23,17 @@ const NavBar = () => {
   const { totalItems } = useCartStore();
   const { setProgress } = useLoadingBarStore();
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [_visible, setVisible] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
   // const matchRoutes = (routes: string  ) => {
   //     return matchPath({ path: routes }, location.pathname)
   // }
-  const navigate = usenavigate();
-  const matchRoutes = (route: string) => {
-    const  pathname  = usePathname();
-    return pathname === route ; // Simple match
-  };
+  const navigate = useNavigate();
+  const pathname = usePathname(); // ✅ hook used directly in component
+
+  const matchRoutes = (route: string) => pathname === route; // ✅ now pure function
+
   interface Sublink {
     name: string;
     link: string;

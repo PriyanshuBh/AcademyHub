@@ -46,7 +46,7 @@ const InstructorDashboard = () => {
             <div>
                 <div className='space-y-2'>
                     <h1 className='text-2xl font-bold text-richblack-5'>Hi {user?.firstName} 👋</h1>
-                    <p className='font-medium text-richblack-200'>Let's start something new</p>
+                    <p className='font-medium text-richblack-200'>Lets start something new</p>
                 </div>
                 <div  className='my-4 flex flex-col-reverse  gap-3 md:flex-row md:flex md:h-[450px] md:space-x-4'>
                     <div className='flex flex-col flex-1 rounded-md bg-richblack-800 p-6'>
